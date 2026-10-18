@@ -1,449 +1,977 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TALOX Technology | Industrial & Aerospace ERP Software Solutions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>TALOX Technology | Soluciones Digitales y Automatización de Procesos</title>
+    <meta name="description" content="TALOX Technology: Desarrollo de software a medida, automatización de procesos operativos, inteligencia de datos y sistemas de gestión al alcance de sus manos.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-main: #ffffff;
+            --bg-soft: #f4f8fc;
+            --bg-accent: #eef5fc;
+            --navy: #0f172a;
+            --navy-mid: #1e293b;
+            --blue-primary: #0284c7;
+            --blue-dark: #0369a1;
+            --cyan-accent: #0ea5e9;
+            --text-main: #1e293b;
+            --text-muted: #475569;
+            --border-light: #dbe7f3;
+            --shadow-soft: 0 12px 32px -8px rgba(15, 23, 42, 0.07);
+            --shadow-hover: 0 22px 44px -12px rgba(2, 132, 199, 0.16);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            color: #0f172a;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
             overflow-x: hidden;
         }
-        .nav-clean {
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid #e2e8f0;
-        }
-        .hero-light-bg {
-            background: radial-gradient(circle at 85% 15%, #e0f2fe 0%, #f8fafc 55%, #ffffff 100%);
-        }
-        .corp-card {
-            background: #ffffff;
+
+        /* Fusión óptica para que el fondo blanco de cualquier logo (.jpeg/.jpg/.png) se integre sin cortes */
+        .logo-blend-box {
+            background-color: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            padding: 8px 16px;
             border: 1px solid #e2e8f0;
-            box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.06);
-            transition: all 0.28s ease;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
         }
-        .corp-card:hover {
-            border-color: #38bdf8;
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px -12px rgba(2, 132, 199, 0.16);
+
+        .logo-blend-img {
+            mix-blend-mode: multiply;
+            filter: contrast(1.06) brightness(1.03);
+            display: block;
+            object-fit: contain;
         }
-        .logo-box {
+
+        /* Barra de Navegación */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             background: #ffffff;
-            border: 1px solid #e2e8f0;
+            border-bottom: 1px solid var(--border-light);
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: var(--navy);
+        }
+
+        .brand-header .logo-blend-box {
+            padding: 4px 10px;
+            border: none;
+            box-shadow: none;
+        }
+
+        .brand-header img {
+            height: 54px;
+            width: auto;
+            max-width: 200px;
+        }
+
+        .brand-title {
+            font-weight: 800;
+            font-size: 1.35rem;
+            letter-spacing: -0.5px;
+            color: var(--navy);
+            line-height: 1.1;
+        }
+
+        .brand-subtitle {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--blue-primary);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.94rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue-primary);
+        }
+
+        .nav-cta {
+            background: var(--navy);
+            color: #ffffff !important;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 700 !important;
+            font-size: 0.9rem !important;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+            transition: all 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--blue-primary);
+            transform: translateY(-1px);
+        }
+
+        /* Sección Hero */
+        .hero {
+            position: relative;
+            background: linear-gradient(180deg, #ffffff 0%, var(--bg-soft) 100%);
+            padding: 76px 24px 88px;
+            border-bottom: 1px solid var(--border-light);
+            overflow: hidden;
+        }
+
+        /* Patrón esquemático sutil en el fondo */
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(to right, rgba(2, 132, 199, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(2, 132, 199, 0.04) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            position: relative;
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e0f2fe;
+            color: var(--blue-dark);
+            font-weight: 700;
+            font-size: 0.82rem;
+            padding: 7px 16px;
+            border-radius: 999px;
+            margin-bottom: 22px;
+            border: 1px solid #bae6fd;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.1rem, 4vw, 3.35rem);
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--blue-primary);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            max-width: 630px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--blue-primary);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 26px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.98rem;
+            box-shadow: 0 10px 24px -6px rgba(2, 132, 199, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--blue-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #ffffff;
+            color: var(--navy);
+            text-decoration: none;
+            padding: 14px 26px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.98rem;
+            border: 1.5px solid var(--border-light);
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--blue-primary);
+            color: var(--blue-primary);
+        }
+
+        /* Tarjeta Principal del Logo TALOX */
+        .hero-showcase {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 36px 28px;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+        }
+
+        .hero-logo-frame {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 16px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1.25rem;
-            height: 140px;
+        }
+
+        .hero-logo-frame img {
+            width: 100%;
+            max-width: 340px;
+            max-height: 220px;
+            object-fit: contain;
+        }
+
+        .acronym-bar {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .acronym-item {
+            background: var(--bg-soft);
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            padding: 10px 6px;
+            text-align: center;
+        }
+
+        .acronym-item strong {
+            display: block;
+            font-size: 1.2rem;
+            color: var(--blue-primary);
+            font-weight: 800;
+        }
+
+        .acronym-item span {
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            display: block;
+            margin-top: 2px;
+        }
+
+        /* Secciones Generales */
+        section {
+            padding: 80px 24px;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 780px;
+            margin: 0 auto 52px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--blue-primary);
+            background: #e0f2fe;
+            padding: 5px 14px;
+            border-radius: 999px;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.75rem, 3vw, 2.4rem);
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 14px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* Capacidades de Ingeniería de Software */
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+
+        .cap-card {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: 18px;
+            padding: 28px 24px;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .cap-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--cyan-accent);
+        }
+
+        .cap-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: #e0f2fe;
+            color: var(--blue-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+        }
+
+        .cap-card h3 {
+            font-size: 1.12rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .cap-card p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        /* Ecosistema de Plataformas en Producción */
+        .bg-soft-section {
+            background-color: var(--bg-soft);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 28px;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border-radius: 22px;
+            border: 1.5px solid var(--border-light);
+            padding: 34px 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.25s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--blue-primary);
+        }
+
+        /* Cápsula blanca pura para que los logos JPEG y PNG tengan el mismo fondo blanco limpio */
+        .product-logo-box {
+            height: 120px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 20px;
+            margin-bottom: 22px;
+        }
+
+        .product-logo-box img {
+            max-height: 92px;
+            max-width: 240px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .product-category {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.74rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--blue-primary);
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .product-card h3 {
+            font-size: 1.4rem;
+            color: var(--navy);
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .product-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 26px;
+        }
+
+        .feature-pills span {
+            background: var(--bg-soft);
+            color: var(--navy-mid);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+        }
+
+        .btn-launch {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background: var(--navy);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.94rem;
+            transition: background 0.2s;
+        }
+
+        .btn-launch:hover {
+            background: var(--blue-primary);
+        }
+
+        /* Identidad Corporativa: Misión, Visión, Valores */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .pillar-box {
+            background: var(--bg-soft);
+            border: 1px solid var(--border-light);
+            border-radius: 18px;
+            padding: 30px 26px;
+        }
+
+        .pillar-box h3 {
+            font-size: 1.2rem;
+            color: var(--navy);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pillar-box h3 i {
+            color: var(--blue-primary);
+        }
+
+        .pillar-box p {
+            color: var(--text-muted);
+            font-size: 0.94rem;
+        }
+
+        /* Aliados Comerciales */
+        .allies-banner {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: #ffffff;
+            border-radius: 24px;
+            padding: 48px 40px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 28px;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .allies-banner h3 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .allies-banner p {
+            color: #cbd5e1;
+            max-width: 680px;
+            font-size: 1rem;
+        }
+
+        .btn-allies {
+            background: #38bdf8;
+            color: #0f172a;
+            text-decoration: none;
+            padding: 15px 28px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 0.96rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn-allies:hover {
+            background: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* Pie de Página */
+        footer {
+            background: var(--navy);
+            color: #94a3b8;
+            padding: 56px 24px 36px;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            max-width: 1280px;
+            margin: 0 auto 36px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 32px;
+        }
+
+        .footer-col h4 {
+            color: #ffffff;
+            font-size: 1rem;
+            margin-bottom: 14px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: #38bdf8;
+        }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        @media (max-width: 920px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+            .acronym-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .allies-banner {
+                padding: 32px 24px;
+            }
         }
     </style>
 </head>
-<body class="antialiased selection:bg-sky-600 selection:text-white">
+<body>
 
-    <!-- BARRA DE NAVEGACIÓN CLARA Y EJECUTIVA -->
-    <header class="fixed top-0 left-0 right-0 z-50 nav-clean">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo TALOX Esquina Superior Izquierda -->
-                <a href="#inicio" class="flex items-center gap-3">
-                    <img src="logo_talox.jpg" alt="TALOX Technology"
-                         onerror="this.style.display='none'; document.getElementById('taloxFallback').style.display='flex';"
-                         class="h-14 w-auto object-contain">
-                    <div id="taloxFallback" style="display:none;" class="items-center gap-2">
-                        <span class="text-2xl font-black tracking-wider text-slate-900">TALOX</span>
-                        <span class="text-xs font-bold uppercase tracking-widest text-sky-600 block">Technology</span>
-                    </div>
-                </a>
-
-                <!-- Menú Principal -->
-                <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600">
-                    <a href="#inicio" class="hover:text-sky-600 transition">Inicio</a>
-                    <a href="#identidad" class="hover:text-sky-600 transition">ADN TALOX</a>
-                    <a href="#plataformas" class="hover:text-sky-600 transition">Nuestras Plataformas</a>
-                    <a href="#divisiones" class="hover:text-sky-600 transition">Alcance &amp; Servicios</a>
-                    <a href="#nosotros" class="hover:text-sky-600 transition">Misión &amp; Visión</a>
-                    <a href="#aliados" class="hover:text-sky-600 transition">Aliados Comerciales</a>
-                </nav>
-
-                <!-- Botones Rápidos de Ecosistema -->
-                <div class="hidden md:flex items-center gap-2.5">
-                    <a href="https://www.sipa-ops.com" target="_blank" rel="noopener"
-                       class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs uppercase tracking-wider border border-slate-300 transition flex items-center gap-1.5">
-                        <i class="fa-solid fa-plane-up text-sky-600"></i> Portal SIPA
-                    </a>
-                    <a href="https://traza.taloxtechnology.com" target="_blank" rel="noopener"
-                       class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-900 to-sky-700 hover:from-blue-800 hover:to-sky-600 text-white font-bold text-xs uppercase tracking-wider shadow-md transition flex items-center gap-1.5">
-                        <i class="fa-solid fa-cube text-sky-300"></i> Portal TRAZA
-                    </a>
+    <!-- Navegación Superior -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="brand-header">
+                <div class="logo-blend-box">
+                    <img data-logo="logo_talox" src="logo_talox.jpeg" alt="TALOX Technology" class="logo-blend-img">
                 </div>
-
-                <!-- Botón Móvil -->
-                <button id="btnMobileMenu" type="button" class="lg:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100" aria-label="Abrir Menú">
-                    <i class="fa-solid fa-bars text-xl"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Menú Móvil -->
-        <div id="mobileMenuPanel" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-2 shadow-lg">
-            <a href="#inicio" class="mobile-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-100">Inicio</a>
-            <a href="#identidad" class="mobile-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-100">Significado TALOX</a>
-            <a href="#plataformas" class="mobile-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-100">Nuestras Plataformas (SIPA &amp; TRAZA)</a>
-            <a href="#divisiones" class="mobile-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-100">Objeto &amp; Servicios</a>
-            <a href="#nosotros" class="mobile-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-100">Misión, Visión y Objetivos</a>
-            <a href="#aliados" class="mobile-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-100">Aliados Comerciales</a>
+                <div>
+                    <span class="brand-title">TALOX</span>
+                    <span class="brand-subtitle">Technology</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#soluciones">Soluciones a Medida</a></li>
+                <li><a href="#ecosistema">Plataformas</a></li>
+                <li><a href="#corporativo">Filosofía</a></li>
+                <li><a href="#aliados">Aliados Comerciales</a></li>
+                <li><a href="#ecosistema" class="nav-cta"><i class="fa-solid fa-layer-group"></i> Acceder a Sistemas</a></li>
+            </ul>
         </div>
     </header>
 
-    <!-- HERO PRINCIPAL (CLARO, MODERNO Y DESCANSADO PARA LA VISTA) -->
-    <section id="inicio" class="pt-28 pb-20 lg:pt-36 lg:pb-24 hero-light-bg border-b border-slate-200/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <!-- Columna Izquierda -->
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-100 border border-sky-300 text-sky-900 text-xs font-extrabold uppercase tracking-widest">
-                        <i class="fa-solid fa-microchip text-sky-600"></i> Ingeniería de Software · Producción Industrial · Aviación
-                    </div>
-
-                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-tight">
-                        Soluciones digitales de <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-sky-600 to-cyan-600">grado industrial y aeroespacial.</span>
-                    </h1>
-
-                    <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
-                        Somos una empresa de base tecnológica e ingeniería de software, nacida bajo los más estrictos estándares de <strong>seguridad, trazabilidad y precisión</strong> que exigen la industria de producción, el sector comercial y la aviación. Traducimos la complejidad operativa en herramientas digitales ágiles, intuitivas y escalables.
-                    </p>
-
-                    <div class="flex flex-wrap items-center gap-4 pt-2">
-                        <a href="#plataformas" class="px-6 py-3.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white font-extrabold text-sm uppercase tracking-wider shadow-lg transition flex items-center gap-2">
-                            <i class="fa-solid fa-layer-group text-sky-300"></i> Conocer Nuestras Plataformas
-                        </a>
-                        <a href="#contacto" class="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-bold text-sm uppercase tracking-wider shadow-sm transition flex items-center gap-2">
-                            <i class="fa-solid fa-headset text-sky-600"></i> Atención Corporativa
-                        </a>
-                    </div>
+    <!-- Hero Principal -->
+    <section class="hero">
+        <div class="hero-grid">
+            <div>
+                <div class="badge-pill">
+                    <i class="fa-solid fa-microchip"></i>
+                    Soluciones Digitales y Automatización de Procesos al Alcance de sus Manos
                 </div>
-
-                <!-- Columna Derecha: Tarjeta de Marca TALOX -->
-                <div class="lg:col-span-5">
-                    <div class="corp-card rounded-3xl p-6 sm:p-8 bg-white">
-                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-center mb-6">
-                            <img src="logo_talox.jpg" alt="Logotipo Oficial TALOX Technology" class="max-h-36 w-auto object-contain">
-                        </div>
-                        <div class="grid grid-cols-2 gap-3 text-xs">
-                            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                                <i class="fa-solid fa-shield-halved text-blue-900 text-base mb-1"></i>
-                                <strong class="block text-slate-900">Seguridad &amp; Precisión</strong>
-                                <span class="text-slate-500">Arquitectura robusta en la nube y trazabilidad total.</span>
-                            </div>
-                            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                                <i class="fa-solid fa-brain text-sky-600 text-base mb-1"></i>
-                                <strong class="block text-slate-900">Vanguardia e IA</strong>
-                                <span class="text-slate-500">Análisis predictivo y automatización de procesos.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ADN CORPORATIVO: SIGNIFICADO DE LAS SIGLAS T-A-L-O-X -->
-    <section id="identidad" class="py-16 bg-white border-b border-slate-200/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-xs font-extrabold uppercase tracking-widest text-sky-600">Identidad Corporativa</span>
-                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mt-1">Los 5 Pilares del Acrónimo <span class="text-blue-900">TALOX</span></h2>
-                <p class="text-slate-500 text-sm sm:text-base mt-2">
-                    Cada letra de nuestra marca representa el compromiso de ingeniería que imprimimos en nuestras soluciones tecnológicas.
+                <h1>Ingeniería de Software y <span>Transformación Operativa</span> para tu Empresa</h1>
+                <p>
+                    En <strong>TALOX Technology</strong> diseñamos, desarrollamos e implementamos ecosistemas digitales, automatización inteligente de flujos de trabajo y arquitecturas en la nube adaptadas a las necesidades reales de cualquier sector comercial, corporativo, logístico o de servicios.
                 </p>
+                <div class="hero-actions">
+                    <a href="#ecosistema" class="btn-primary">
+                        <i class="fa-solid fa-rocket"></i> Explorar Plataformas Activas
+                    </a>
+                    <a href="#aliados" class="btn-secondary">
+                        <i class="fa-solid fa-handshake"></i> Programa de Aliados Comerciales
+                    </a>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
-                <div class="corp-card rounded-2xl p-6 text-center">
-                    <div class="w-12 h-12 mx-auto rounded-2xl bg-blue-900 text-white flex items-center justify-center text-xl font-black mb-3 shadow">T</div>
-                    <h3 class="font-bold text-slate-900 text-sm mb-1.5">Trazabilidad &amp; Tecnología</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed">Seguridad de la información, auditoría continua y bases de datos de alta confiabilidad.</p>
+            <div class="hero-showcase">
+                <div class="hero-logo-frame">
+                    <img data-logo="logo_talox" src="logo_talox.jpeg" alt="Logo Oficial TALOX Technology" class="logo-blend-img">
                 </div>
-                <div class="corp-card rounded-2xl p-6 text-center">
-                    <div class="w-12 h-12 mx-auto rounded-2xl bg-sky-600 text-white flex items-center justify-center text-xl font-black mb-3 shadow">A</div>
-                    <h3 class="font-bold text-slate-900 text-sm mb-1.5">Aviación &amp; Automatización</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed">Sistemas de grado aeronáutico para operaciones aéreas, centros MRO y aeronavegabilidad.</p>
-                </div>
-                <div class="corp-card rounded-2xl p-6 text-center">
-                    <div class="w-12 h-12 mx-auto rounded-2xl bg-blue-900 text-white flex items-center justify-center text-xl font-black mb-3 shadow">L</div>
-                    <h3 class="font-bold text-slate-900 text-sm mb-1.5">Logística &amp; Líneas de Producción</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed">Control inteligente de inventarios críticos, cadenas de suministro y plantas industriales.</p>
-                </div>
-                <div class="corp-card rounded-2xl p-6 text-center">
-                    <div class="w-12 h-12 mx-auto rounded-2xl bg-sky-600 text-white flex items-center justify-center text-xl font-black mb-3 shadow">O</div>
-                    <h3 class="font-bold text-slate-900 text-sm mb-1.5">Optimización Operativa</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed">Plataformas ERP intuitivas para maximizar la productividad comercial, financiera y humana.</p>
-                </div>
-                <div class="corp-card rounded-2xl p-6 text-center sm:col-span-2 lg:col-span-1">
-                    <div class="w-12 h-12 mx-auto rounded-2xl bg-blue-900 text-white flex items-center justify-center text-xl font-black mb-3 shadow">X</div>
-                    <h3 class="font-bold text-slate-900 text-sm mb-1.5">eXpansión &amp; Vanguardia IA</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed">Modelos SaaS escalables con Inteligencia Artificial para las empresas del futuro.</p>
+                <div class="acronym-bar">
+                    <div class="acronym-item">
+                        <strong>T</strong>
+                        <span>Tecnología & Trazabilidad</span>
+                    </div>
+                    <div class="acronym-item">
+                        <strong>A</strong>
+                        <span>Automatización de Procesos</span>
+                    </div>
+                    <div class="acronym-item">
+                        <strong>L</strong>
+                        <span>Logística Inteligente</span>
+                    </div>
+                    <div class="acronym-item">
+                        <strong>O</strong>
+                        <span>Optimización Operativa</span>
+                    </div>
+                    <div class="acronym-item">
+                        <strong>X</strong>
+                        <span>eXpansión & Vanguardia</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ECOSISTEMA DE PLATAFORMAS (CON LOGOS OFICIALES Y RESUMEN EJECUTIVO SIN EXPONER MÓDULOS INTERNOS) -->
-    <section id="plataformas" class="py-20 bg-slate-50 border-b border-slate-200/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+    <!-- Capacidades Multisectoriales -->
+    <section id="soluciones">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Alcance Multisectorial</span>
+                <h2>Tecnología Diseñada para Escalar Cualquier Operación</h2>
+                <p>Construimos herramientas intuitivas, seguras y de rápida adopción que eliminan cuellos de botella operativos y centralizan la toma de decisiones en tiempo real.</p>
+            </div>
+
+            <div class="capabilities-grid">
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-gears"></i></div>
+                    <h3>Automatización de Procesos</h3>
+                    <p>Digitalizamos tareas repetitivas, controles internos, aprobaciones y flujos administrativos para reducir errores humanos y multiplicar la productividad.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-code-branch"></i></div>
+                    <h3>Desarrollo de Software a Medida</h3>
+                    <p>Creamos plataformas web, sistemas de gestión empresarial y portales corporativos adaptados exactamente a las reglas de negocio de cada organización.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>Inteligencia de Datos y Control</h3>
+                    <p>Transformamos operaciones diarias en indicadores ejecutivos claros, auditoría forense en tiempo real y trazabilidad de extremo a extremo.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                    <h3>Arquitectura Cloud & Integraciones</h3>
+                    <p>Despliegue seguro en la nube con acceso multi-dispositivo, sincronización con pasarelas comerciales y disponibilidad continua 24/7.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ecosistema de Plataformas en Producción -->
+    <section id="ecosistema" class="bg-soft-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Ecosistema en Producción</span>
+                <h2>Nuestras Plataformas Especializadas</h2>
+                <p>Selecciona la división correspondiente para ingresar directamente a su portal operativo independiente.</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- 1. TRAZA -->
+                <div class="product-card">
+                    <div>
+                        <div class="product-logo-box">
+                            <img data-logo="logo_traza" src="logo_traza.jpeg" alt="Logo TRAZA" class="logo-blend-img">
+                        </div>
+                        <span class="product-category">División Comercial, Inventarios & Finanzas</span>
+                        <h3>TRAZA — Gestión y Trazabilidad</h3>
+                        <p>
+                            Plataforma integral para el control de almacenes por coordenadas, catálogo inteligente de partes y compatibilidades, punto de venta ágil, gestión multimoneda y auditoría operativa en tiempo real.
+                        </p>
+                        <div class="feature-pills">
+                            <span>Almacén Inteligente</span>
+                            <span>Catálogo Visual</span>
+                            <span>Control Multimoneda</span>
+                            <span>Sincronización E-Commerce</span>
+                        </div>
+                    </div>
+                    <a href="https://traza.taloxtechnology.com" class="btn-launch">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Ingresar al Portal TRAZA
+                    </a>
+                </div>
+
+                <!-- 2. SIPA Flight Ops -->
+                <div class="product-card">
+                    <div>
+                        <div class="product-logo-box">
+                            <img data-logo="logo_sipa" src="logo_sipa.png" alt="Logo SIPA Aviation Ops" class="logo-blend-img">
+                        </div>
+                        <span class="product-category">División de Operaciones Aéreas & Flotas</span>
+                        <h3>SIPA — Aviation Ops</h3>
+                        <p>
+                            Ecosistema para la gestión de operaciones de vuelo, control de aeronavegabilidad continua, planificación de flota, memoria cognitiva asistida por IA y visualización técnica interactiva.
+                        </p>
+                        <div class="feature-pills">
+                            <span>Operaciones de Vuelo</span>
+                            <span>Control de Flota</span>
+                            <span>Gemelo Digital 3D</span>
+                            <span>Asistencia Cognitiva IA</span>
+                        </div>
+                    </div>
+                    <a href="https://www.sipa-ops.com" class="btn-launch">
+                        <i class="fa-solid fa-plane-up"></i> Ingresar a SIPA Flight Ops
+                    </a>
+                </div>
+
+                <!-- 3. SIPA-MRO -->
+                <div class="product-card">
+                    <div>
+                        <div class="product-logo-box">
+                            <img data-logo="logo_sipa" src="logo_sipa.png" alt="Logo SIPA-MRO" class="logo-blend-img">
+                        </div>
+                        <span class="product-category">División de Talleres Aeronáuticos & Propulsión</span>
+                        <h3>SIPA — MRO Plantas Propulsoras</h3>
+                        <p>
+                            Plataforma dedicada a organizaciones de mantenimiento aeronáutico y talleres de plantas propulsoras: trazabilidad de órdenes de servicio, aseguramiento de calidad e inspección técnica certificada.
+                        </p>
+                        <div class="feature-pills">
+                            <span>Plantas Propulsoras</span>
+                            <span>Control de Calidad</span>
+                            <span>Trazabilidad de Taller</span>
+                            <span>Auditoría Técnica</span>
+                        </div>
+                    </div>
+                    <a href="https://www.sipa-ops-mro.com" class="btn-launch">
+                        <i class="fa-solid fa-screwdriver-wrench"></i> Ingresar a SIPA-MRO
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filosofía Corporativa -->
+    <section id="corporativo">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Identidad Corporativa</span>
+                <h2>Nuestra Visión Tecnológica</h2>
+                <p>Comprometidos con la excelencia en ingeniería de software y la comodidad del usuario final.</p>
+            </div>
+
+            <div class="pillars-grid">
+                <div class="pillar-box">
+                    <h3><i class="fa-solid fa-bullseye"></i> Misión</h3>
+                    <p>Desarrollar soluciones digitales y sistemas de automatización de procesos de alta confiabilidad que simplifiquen operaciones complejas, eleven la rentabilidad de nuestros clientes y pongan la tecnología de vanguardia al alcance de sus manos.</p>
+                </div>
+                <div class="pillar-box">
+                    <h3><i class="fa-solid fa-eye"></i> Visión</h3>
+                    <p>Consolidarnos como el referente tecnológico en desarrollo de software empresarial y automatización operativa en Latinoamérica, destacando por interfaces intuitivas, seguridad forense y adaptación continua.</p>
+                </div>
+                <div class="pillar-box">
+                    <h3><i class="fa-solid fa-shield-halved"></i> Valores</h3>
+                    <p>Innovación constante, precisión técnica, transparencia en trazabilidad de datos, diseño centrado en la comodidad del usuario y acompañamiento cercano a cada uno de nuestros Aliados Comerciales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programa de Aliados Comerciales -->
+    <section id="aliados" style="padding-top: 10px;">
+        <div class="container">
+            <div class="allies-banner">
                 <div>
-                    <span class="text-xs font-extrabold uppercase tracking-widest text-sky-600">Propiedad Intelectual &amp; Sistemas SaaS</span>
-                    <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mt-1">Nuestras Plataformas Tecnológicas</h2>
-                    <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl">
-                        Cada sistema cuenta con su propio ecosistema especializado. Selecciona la división para conocer el propósito de cada plataforma e ingresar a su portal oficial.
+                    <span class="badge-pill" style="background: rgba(56,189,248,0.18); color: #7dd3fc; border-color: rgba(56,189,248,0.35);">
+                        Crecimiento Conjunto
+                    </span>
+                    <h3>Programa de Aliados Comerciales</h3>
+                    <p>
+                        Impulsa la transformación digital de tu sector integrando o distribuyendo las soluciones de <strong>TALOX Technology</strong>, o solicita el desarrollo de una plataforma automatizada a la medida de tu organización.
                     </p>
                 </div>
-
-                <!-- Botones Interactivos de Filtro por Sector -->
-                <div class="flex flex-wrap gap-2">
-                    <button type="button" data-filter="ALL" class="filter-btn px-4 py-2 rounded-xl text-xs font-extrabold uppercase bg-blue-900 text-white shadow-sm transition">
-                        Todas las Divisiones
-                    </button>
-                    <button type="button" data-filter="AVIACION" class="filter-btn px-4 py-2 rounded-xl text-xs font-extrabold uppercase bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition">
-                        <i class="fa-solid fa-plane-up text-sky-600 mr-1"></i> Aviación &amp; MRO
-                    </button>
-                    <button type="button" data-filter="COMERCIAL" class="filter-btn px-4 py-2 rounded-xl text-xs font-extrabold uppercase bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition">
-                        <i class="fa-solid fa-cube text-blue-800 mr-1"></i> Gestión &amp; Comercial
-                    </button>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
-                <!-- PLATAFORMA 1: SIPA AVIATION OPS -->
-                <div class="product-card corp-card rounded-3xl p-7 flex flex-col justify-between" data-category="AVIACION">
-                    <div>
-                        <div class="logo-box rounded-2xl mb-6">
-                            <img src="logo_sipa.png" alt="Logo SIPA Aviation Ops" class="max-h-28 w-auto object-contain">
-                        </div>
-                        <span class="inline-block px-3 py-1 rounded-full text-[11px] font-extrabold uppercase bg-sky-100 text-sky-800 mb-3">
-                            División Operaciones &amp; Aeronavegabilidad
-                        </span>
-                        <h3 class="text-2xl font-black text-slate-900 mb-2">SIPA Aviation Ops</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed mb-4">
-                            Desarrollado para centralizar la gestión técnica, el control de flota y la aeronavegabilidad continua en aerolíneas y operadores aéreos bajo estándares regulatorios internacionales.
-                        </p>
-                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 mb-6">
-                            <strong class="text-slate-900 block mb-1"><i class="fa-solid fa-Compass text-sky-600 mr-1"></i> Propósito Ejecutivo:</strong>
-                            Garantizar la máxima disponibilidad de flota, trazabilidad documental "Cero Papel" y toma de decisiones operativas basadas en análisis predictivo.
-                        </div>
-                    </div>
-
-                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
-                        <span class="text-xs font-mono text-slate-400">www.sipa-ops.com</span>
-                        <a href="https://www.sipa-ops.com" target="_blank" rel="noopener"
-                           class="px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-extrabold text-xs uppercase tracking-wider shadow transition flex items-center gap-2">
-                            Ir al Portal SIPA <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- PLATAFORMA 2: SIPA-MRO TALLERES AERONÁUTICOS -->
-                <div class="product-card corp-card rounded-3xl p-7 flex flex-col justify-between" data-category="AVIACION">
-                    <div>
-                        <div class="logo-box rounded-2xl mb-6">
-                            <img src="logo_sipa.png" alt="Logo SIPA MRO" class="max-h-28 w-auto object-contain">
-                        </div>
-                        <span class="inline-block px-3 py-1 rounded-full text-[11px] font-extrabold uppercase bg-blue-100 text-blue-900 mb-3">
-                            División Centros de Mantenimiento (MRO)
-                        </span>
-                        <h3 class="text-2xl font-black text-slate-900 mb-2">SIPA-MRO Especializado</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed mb-4">
-                            Creado específicamente para Organizaciones de Mantenimiento Aprobadas (OMA / MRO) y talleres aeronáuticos de alta precisión (baterías, aviónica, calibración y equipos de salvamento).
-                        </p>
-                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 mb-6">
-                            <strong class="text-slate-900 block mb-1"><i class="fa-solid fa-screwdriver-wrench text-blue-800 mr-1"></i> Propósito Ejecutivo:</strong>
-                            Digitalizar de principio a fin las órdenes de servicio técnico, certificaciones de calidad y control de componentes en hangares y talleres.
-                        </div>
-                    </div>
-
-                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
-                        <span class="text-xs font-mono text-slate-400">www.sipa-ops-mro.com</span>
-                        <a href="https://www.sipa-ops-mro.com" target="_blank" rel="noopener"
-                           class="px-5 py-2.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white font-extrabold text-xs uppercase tracking-wider shadow transition flex items-center gap-2">
-                            Ir a SIPA-MRO <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- PLATAFORMA 3: TRAZA SISTEMA DE GESTIÓN Y TRAZABILIDAD -->
-                <div class="product-card corp-card rounded-3xl p-7 flex flex-col justify-between" data-category="COMERCIAL">
-                    <div>
-                        <div class="logo-box rounded-2xl mb-6">
-                            <img src="logo_traza.jpg" alt="Logo TRAZA Sistema de Gestión y Trazabilidad" class="max-h-28 w-auto object-contain">
-                        </div>
-                        <span class="inline-block px-3 py-1 rounded-full text-[11px] font-extrabold uppercase bg-cyan-100 text-cyan-900 mb-3">
-                            División Comercial, Automotriz &amp; ERP
-                        </span>
-                        <h3 class="text-2xl font-black text-slate-900 mb-2">TRAZA Gestión y Trazabilidad</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed mb-4">
-                            Sistema ERP y Punto de Venta desarrollado para comercializadoras de repuestos, distribuidoras y empresas que requieren control exacto de inventario, almacenes y finanzas multimoneda.
-                        </p>
-                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 mb-6">
-                            <strong class="text-slate-900 block mb-1"><i class="fa-solid fa-chart-line text-cyan-700 mr-1"></i> Propósito Ejecutivo:</strong>
-                            Integrar las ventas físicas y digitales con la contabilidad, el cumplimiento fiscal y la trazabilidad de almacén en tiempo real.
-                        </div>
-                    </div>
-
-                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
-                        <span class="text-xs font-mono text-slate-400">traza.taloxtechnology.com</span>
-                        <a href="https://traza.taloxtechnology.com" target="_blank" rel="noopener"
-                           class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-900 to-cyan-600 hover:from-blue-800 hover:to-cyan-500 text-white font-extrabold text-xs uppercase tracking-wider shadow transition flex items-center gap-2">
-                            Ir al Portal TRAZA <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </div>
-                </div>
-
+                <a href="https://wa.me/584120444230?text=Hola%2C%20deseo%20informaci%C3%B3n%20sobre%20las%20soluciones%20de%20TALOX%20Technology%20y%20el%20Programa%20de%20Aliados%20Comerciales" target="_blank" rel="noopener" class="btn-allies">
+                    <i class="fa-brands fa-whatsapp"></i> Contactar Dirección Comercial
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- OBJETO DE LA EMPRESA Y LÍNEAS DE SERVICIO -->
-    <section id="divisiones" class="py-20 bg-white border-b border-slate-200/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-14">
-                <span class="text-xs font-extrabold uppercase tracking-widest text-sky-600">Objeto Corporativo</span>
-                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mt-1">Áreas de Especialización Tecnológica</h2>
-                <p class="text-slate-500 text-sm sm:text-base mt-2">
-                    Diseño, desarrollo, programación, implementación, comercialización y mantenimiento de sistemas informáticos, software ERP, aplicaciones web/móviles y soluciones en la nube.
-                </p>
+    <!-- Pie de Página -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>TALOX Technology</h4>
+                <p>Soluciones digitales, desarrollo de software a medida y automatización inteligente de procesos al alcance de sus manos.</p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="corp-card rounded-2xl p-6">
-                    <div class="w-11 h-11 rounded-xl bg-blue-50 text-blue-900 flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h3 class="text-base font-extrabold text-slate-900 mb-2">Consultoría Tecnológica e Industrial</h3>
-                    <p class="text-sm text-slate-600">Auditoría de sistemas, diseño de bases de datos, soporte técnico especializado y ciberseguridad industrial.</p>
-                </div>
-                <div class="corp-card rounded-2xl p-6">
-                    <div class="w-11 h-11 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-industry"></i></div>
-                    <h3 class="text-base font-extrabold text-slate-900 mb-2">Gestión para la Industria de Producción</h3>
-                    <p class="text-sm text-slate-600">Soluciones para el control de líneas de producción, inventarios de materia prima, mantenimiento preventivo de maquinaria y cadenas de suministro.</p>
-                </div>
-                <div class="corp-card rounded-2xl p-6">
-                    <div class="w-11 h-11 rounded-xl bg-blue-50 text-blue-900 flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-plane-circle-check"></i></div>
-                    <h3 class="text-base font-extrabold text-slate-900 mb-2">Gestión para la Industria de Aviación</h3>
-                    <p class="text-sm text-slate-600">Sistemas para talleres MRO (Mantenimiento, Reparación y Revisión), control de componentes aeronáuticos, aerolíneas y aeronavegabilidad.</p>
-                </div>
-                <div class="corp-card rounded-2xl p-6">
-                    <div class="w-11 h-11 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-sitemap"></i></div>
-                    <h3 class="text-base font-extrabold text-slate-900 mb-2">Soluciones Corporativas Transversales</h3>
-                    <p class="text-sm text-slate-600">Software multiplataforma para sectores comerciales, administrativos, logísticos y de recursos humanos.</p>
-                </div>
-                <div class="corp-card rounded-2xl p-6 md:col-span-2">
-                    <div class="w-11 h-11 rounded-xl bg-blue-50 text-blue-900 flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-cloud-arrow-up"></i></div>
-                    <h3 class="text-base font-extrabold text-slate-900 mb-2">Venta, Licenciamiento SaaS e Inteligencia Artificial</h3>
-                    <p class="text-sm text-slate-600">Comercialización de software bajo modelos SaaS (Software as a Service), desarrollo de propiedad intelectual propia e implementación de Inteligencia Artificial para la predicción de fallas y optimización de procesos industriales.</p>
-                </div>
+            <div class="footer-col">
+                <h4>Plataformas Activas</h4>
+                <ul>
+                    <li><a href="https://traza.taloxtechnology.com">TRAZA — Gestión y Trazabilidad</a></li>
+                    <li><a href="https://www.sipa-ops.com">SIPA — Aviation Ops</a></li>
+                    <li><a href="https://www.sipa-ops-mro.com">SIPA — MRO Plantas Propulsoras</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto Directo</h4>
+                <ul>
+                    <li><i class="fa-solid fa-phone" style="margin-right:8px;color:#38bdf8;"></i> +58 (412) 044-4230</li>
+                    <li><i class="fa-solid fa-envelope" style="margin-right:8px;color:#38bdf8;"></i> reyesvce@gmail.com</li>
+                    <li><i class="fa-solid fa-globe" style="margin-right:8px;color:#38bdf8;"></i> taloxtechnology.com</li>
+                </ul>
             </div>
         </div>
-    </section>
-
-    <!-- MISIÓN, VISIÓN Y OBJETIVOS CORPORATIVOS -->
-    <section id="nosotros" class="py-20 bg-slate-50 border-b border-slate-200/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="corp-card rounded-2xl p-8 border-l-4 border-l-blue-900">
-                    <h3 class="text-2xl font-black text-slate-900 mb-3"><i class="fa-solid fa-bullseye text-blue-900 mr-2"></i>Misión</h3>
-                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                        Empoderar a las organizaciones de la industria de producción y aviación mediante el desarrollo de software de alta precisión. Transformamos la complejidad operativa en interfaces intuitivas y seguras, aplicando estándares de ingeniería de sistemas para optimizar los recursos y potenciar la productividad de nuestros clientes.
-                    </p>
-                </div>
-                <div class="corp-card rounded-2xl p-8 border-l-4 border-l-sky-500">
-                    <h3 class="text-2xl font-black text-slate-900 mb-3"><i class="fa-solid fa-earth-americas text-sky-600 mr-2"></i>Visión</h3>
-                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                        Consolidarnos como la Fábrica de Software e Innovación Tecnológica de referencia en América Latina, reconocidos por exportar soluciones digitales de grado industrial que aceleren la transformación digital en las empresas del futuro, sin límites de sector o frontera.
-                    </p>
-                </div>
-            </div>
-
-            <div class="corp-card rounded-2xl p-8">
-                <span class="text-xs font-extrabold uppercase tracking-widest text-sky-600">Norte Estratégico</span>
-                <h3 class="text-xl font-black text-slate-900 mt-1 mb-2">Objetivos Corporativos</h3>
-                <p class="text-slate-600 text-sm sm:text-base mb-6">
-                    Desarrollar y comercializar soluciones de software integrales que automaticen, protejan y optimicen los procesos operativos, productivos y administrativos de empresas en los sectores de aviación, comercial y producción industrial, garantizando los más altos estándares internacionales de calidad y seguridad de la información.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-600">
-                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200"><strong class="text-slate-900">01. Especialización Industrial y Aeronáutica:</strong> Desplegar módulos ERP especializados tanto para plantas de producción como para nichos técnicos aeronáuticos (talleres de baterías, aviónica y equipos de salvamento).</div>
-                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200"><strong class="text-slate-900">02. Gestión Integral Multiplataforma:</strong> Facilitar la administración unificada de Recursos Humanos, Compras, Ventas e Inventarios críticos.</div>
-                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200"><strong class="text-slate-900">03. Inteligencia Artificial Aplicada:</strong> Implementar análisis de datos e IA para la predicción de fallas y optimización continua de procesos.</div>
-                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200"><strong class="text-slate-900">04. Propiedad Intelectual y Expansión:</strong> Garantizar el resguardo tecnológico y el escalamiento global de las soluciones desarrolladas.</div>
-                </div>
-            </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 TALOX Technology. Todos los derechos reservados.</span>
+            <span>Ingeniería de Software & Automatización de Procesos</span>
         </div>
-    </section>
-
-    <!-- PROGRAMA DE ALIADOS COMERCIALES Y CONTACTO -->
-    <section id="aliados" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-            <div class="corp-card rounded-3xl p-8 sm:p-10 bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-white">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    <div class="lg:col-span-8 space-y-3">
-                        <span class="text-xs font-extrabold uppercase tracking-widest text-sky-400"><i class="fa-solid fa-handshake mr-1"></i> Red de Expansión</span>
-                        <h2 class="text-2xl sm:text-3xl font-black">Programa de Aliados Comerciales</h2>
-                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                            En <strong>TALOX Technology</strong> creamos sinergias estratégicas con <strong>Aliados Comerciales</strong>, consultores industriales, distribuidores tecnológicos y organizaciones del sector aeronáutico y automotriz para expandir la implementación de nuestras plataformas SaaS con respaldo técnico directo.
-                        </p>
-                    </div>
-                    <div class="lg:col-span-4 flex lg:justify-end">
-                        <a href="#contacto" class="px-6 py-4 rounded-2xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-lg transition">
-                            Postularse como Aliado Comercial
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contacto Directo -->
-            <div id="contacto" class="text-center max-w-3xl mx-auto space-y-6 pt-4">
-                <span class="text-xs font-extrabold uppercase tracking-widest text-sky-600">Canales Oficiales</span>
-                <h2 class="text-2xl sm:text-4xl font-black text-slate-900">Conecta con TALOX Technology</h2>
-                <p class="text-slate-600 text-sm sm:text-base">
-                    Solicita una demostración corporativa, licenciamiento SaaS o soporte técnico para nuestras plataformas.
-                </p>
-                <div class="flex flex-wrap justify-center gap-4 text-sm font-semibold text-slate-700">
-                    <div class="px-5 py-3 rounded-xl bg-slate-100 border border-slate-200 flex items-center gap-2">
-                        <i class="fa-solid fa-phone text-sky-600"></i> Soporte y Ventas: <strong>0412-044-4230</strong>
-                    </div>
-                    <div class="px-5 py-3 rounded-xl bg-slate-100 border border-slate-200 flex items-center gap-2">
-                        <i class="fa-solid fa-globe text-blue-900"></i> <strong>www.taloxtechnology.com</strong>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-8 bg-slate-900 text-center text-xs text-slate-400">
-        <p>&copy; 2026 <strong class="text-white">TALOX Technology</strong> · Industrial &amp; Aerospace ERP Software Solutions · Todos los derechos reservados.</p>
     </footer>
 
+    <!-- Cargador Inteligente Multi-Formato (.jpeg / .jpg / .png / Mayúsculas) -->
     <script>
-        document.getElementById('btnMobileMenu').addEventListener('click', function() {
-            document.getElementById('mobileMenuPanel').classList.toggle('hidden');
-        });
-        document.querySelectorAll('.filter-btn').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                const target = btn.getAttribute('data-filter');
-                document.querySelectorAll('.filter-btn').forEach(function(b) {
-                    b.className = 'filter-btn px-4 py-2 rounded-xl text-xs font-extrabold uppercase bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition';
-                });
-                btn.className = 'filter-btn px-4 py-2 rounded-xl text-xs font-extrabold uppercase bg-blue-900 text-white shadow-sm transition';
-                document.querySelectorAll('.product-card').forEach(function(card) {
-                    card.style.display = (target === 'ALL' || card.getAttribute('data-category') === target) ? '' : 'none';
-                });
+        (function() {
+            const candidatos = {
+                logo_talox: [
+                    'logo_talox.jpeg', 'logo_talox.jpg', 'logo_talox.png',
+                    'logo_talox.JPEG', 'logo_talox.JPG', 'logo_talox.PNG',
+                    'talox.jpeg', 'talox.jpg', 'Logo_TALOX_Technology_Principal.jpg'
+                ],
+                logo_traza: [
+                    'logo_traza.jpeg', 'logo_traza.jpg', 'logo_traza.png',
+                    'logo_traza.JPEG', 'logo_traza.JPG', 'logo_traza.PNG',
+                    'traza.jpeg', 'traza.jpg'
+                ],
+                logo_sipa: [
+                    'logo_sipa.png', 'logo_sipa.jpeg', 'logo_sipa.jpg',
+                    'logo_sipa.PNG', 'logo_sipa.JPEG', 'logo_sipa.JPG',
+                    'sipa.png'
+                ]
+            };
+
+            document.querySelectorAll('img[data-logo]').forEach(function(img) {
+                const clave = img.getAttribute('data-logo');
+                const lista = candidatos[clave] || [];
+                let indice = 0;
+
+                function probarSiguiente() {
+                    indice++;
+                    if (indice < lista.length) {
+                        img.src = lista[indice];
+                    }
+                }
+
+                img.addEventListener('error', probarSiguiente);
             });
-        });
+        })();
     </script>
 </body>
 </html>
