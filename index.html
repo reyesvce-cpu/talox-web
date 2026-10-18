@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TALOX Technology | Industrial & Aerospace Software — ERP, MRO & SaaS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #060f1e; color: #f8fafc; overflow-x: hidden; }
+        .glass-nav { background: rgba(6, 15, 30, 0.90); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(56, 189, 248, 0.18); }
+        .glass-card { background: linear-gradient(145deg, rgba(15, 23, 42, 0.92), rgba(10, 25, 47, 0.82)); border: 1px solid rgba(148, 163, 184, 0.18); transition: all 0.25s ease; }
+        .glass-card:hover { border-color: rgba(14, 165, 233, 0.55); transform: translateY(-4px); box-shadow: 0 18px 38px -12px rgba(14, 165, 233, 0.25); }
+        .hero-circuit-bg { background: radial-gradient(circle at 15% 20%, rgba(29, 78, 216, 0.32) 0%, rgba(6, 15, 30, 0.98) 68%); }
+    </style>
+</head>
+<body class="antialiased selection:bg-sky-500 selection:text-white">
+
+    <!-- BARRA DE NAVEGACIÓN CORPORATIVA -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#inicio" class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-sky-500 to-blue-700 flex items-center justify-center shadow-lg border border-sky-400/40">
+                        <i class="fa-solid fa-plane-up text-white text-lg"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-xl font-black tracking-wider text-white">TALOX</span>
+                            <span class="text-xl font-semibold text-sky-400">Technology</span>
+                        </div>
+                        <span class="block text-[10px] tracking-widest uppercase text-slate-400 font-semibold">Industrial &amp; Aerospace Software</span>
+                    </div>
+                </a>
+
+                <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+                    <a href="#inicio" class="hover:text-sky-400 transition">Inicio</a>
+                    <a href="#identidad" class="hover:text-sky-400 transition">ADN TALOX</a>
+                    <a href="#productos" class="hover:text-sky-400 transition">Sistemas &amp; Productos</a>
+                    <a href="#servicios" class="hover:text-sky-400 transition">Divisiones</a>
+                    <a href="#nosotros" class="hover:text-sky-400 transition">Misión &amp; Visión</a>
+                    <a href="#contacto" class="hover:text-sky-400 transition">Contacto</a>
+                </nav>
+
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="https://traza.taloxtechnology.com" target="_blank" rel="noopener"
+                       class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg transition flex items-center gap-2">
+                        <i class="fa-solid fa-rocket"></i> Lanzar TRAZA ERP
+                    </a>
+                </div>
+
+                <button id="btnMobileMenu" type="button" class="md:hidden p-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60" aria-label="Menú">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobileMenuPanel" class="hidden md:hidden bg-slate-950/95 border-b border-slate-800 px-4 pt-3 pb-6 space-y-2">
+            <a href="#inicio" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-200 hover:bg-slate-800/70">Inicio</a>
+            <a href="#identidad" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-200 hover:bg-slate-800/70">Significado TALOX</a>
+            <a href="#productos" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-200 hover:bg-slate-800/70">Sistemas &amp; Productos</a>
+            <a href="#servicios" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-200 hover:bg-slate-800/70">Servicios &amp; Divisiones</a>
+            <a href="#nosotros" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-200 hover:bg-slate-800/70">Misión, Visión y Objetivos</a>
+            <a href="#contacto" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-200 hover:bg-slate-800/70">Contacto Comercial</a>
+        </div>
+    </header>
+
+    <!-- HERO PRINCIPAL -->
+    <section id="inicio" class="relative pt-28 pb-20 lg:pt-36 lg:pb-28 hero-circuit-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-400/30 text-sky-300 text-xs font-bold uppercase tracking-widest">
+                        <i class="fa-solid fa-microchip"></i> Ingeniería de Software · Aviación MRO · Producción Industrial
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
+                        Transformamos la complejidad operativa en <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-400 to-cyan-300">software de alta precisión.</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+                        Somos una empresa de base tecnológica e ingeniería de software, nacida bajo los más estrictos estándares de <strong>seguridad, trazabilidad y precisión</strong> que exigen la industria de producción y el sector de la aviación. Desarrollamos sistemas ERP, aplicaciones web y soluciones móviles de alto impacto para plantas de fabricación, centros de mantenimiento técnico (MRO) y corporaciones globales.
+                    </p>
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#productos" class="px-6 py-3.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-extrabold text-sm uppercase tracking-wider shadow-lg transition flex items-center gap-2">
+                            <i class="fa-solid fa-layer-group"></i> Ver Plataformas y Productos
+                        </a>
+                        <a href="#contacto" class="px-6 py-3.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 border border-slate-600 text-white font-bold text-sm uppercase tracking-wider transition flex items-center gap-2">
+                            <i class="fa-solid fa-headset text-sky-400"></i> Solicitar Demo / Licencia
+                        </a>
+                    </div>
+
+                    <!-- Accesos Directos a los Sistemas en Vivo -->
+                    <div class="pt-6 border-t border-slate-800/80">
+                        <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i> Acceso Directo a Nuestras Plataformas en la Nube:
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <a href="https://traza.taloxtechnology.com" target="_blank" rel="noopener"
+                               class="p-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-emerald-500/40 flex items-center justify-between group transition">
+                                <div>
+                                    <span class="text-[10px] font-bold uppercase text-emerald-400 block">Comercial &amp; Automotriz</span>
+                                    <span class="font-bold text-sm text-white">TRAZA ERP</span>
+                                </div>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-slate-400 group-hover:text-emerald-400"></i>
+                            </a>
+                            <a href="https://www.sipa-ops.com" target="_blank" rel="noopener"
+                               class="p-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-sky-500/40 flex items-center justify-between group transition">
+                                <div>
+                                    <span class="text-[10px] font-bold uppercase text-sky-400 block">Operaciones de Vuelo</span>
+                                    <span class="font-bold text-sm text-white">SIPA-OPS</span>
+                                </div>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-slate-400 group-hover:text-sky-400"></i>
+                            </a>
+                            <a href="https://www.sipa-ops-mro.com" target="_blank" rel="noopener"
+                               class="p-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-amber-500/40 flex items-center justify-between group transition">
+                                <div>
+                                    <span class="text-[10px] font-bold uppercase text-amber-400 block">Mantenimiento Aviación</span>
+                                    <span class="font-bold text-sm text-white">SIPA-MRO</span>
+                                </div>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-slate-400 group-hover:text-amber-400"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel Derecho de Indicadores de Ingeniería -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="glass-card rounded-3xl p-6 sm:p-8 border border-sky-500/30 shadow-2xl space-y-6">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                            <div>
+                                <span class="text-xs font-bold uppercase text-sky-400 block">Arquitectura Cloud &amp; SaaS</span>
+                                <h2 class="text-2xl font-black text-white">TALOX Technology</h2>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-xs font-bold">100% Operativo</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800">
+                                <i class="fa-solid fa-plane-circle-check text-sky-400 text-2xl mb-2"></i>
+                                <div class="text-lg font-black text-white">Aviación &amp; MRO</div>
+                                <p class="text-xs text-slate-400">Control de componentes P/N, S/N, baterías, aviónica y operaciones de vuelo.</p>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800">
+                                <i class="fa-solid fa-car-burst text-emerald-400 text-2xl mb-2"></i>
+                                <div class="text-lg font-black text-white">Autopartes &amp; POS</div>
+                                <p class="text-xs text-slate-400">Galería Fitment por año, almacén WMS, SENIAT IGTF 3% y Mercado Libre.</p>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800">
+                                <i class="fa-solid fa-industry text-amber-400 text-2xl mb-2"></i>
+                                <div class="text-lg font-black text-white">Plantas &amp; Líneas</div>
+                                <p class="text-xs text-slate-400">Trazabilidad de materia prima, órdenes de fabricación y mantenimiento.</p>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800">
+                                <i class="fa-solid fa-brain text-purple-400 text-2xl mb-2"></i>
+                                <div class="text-lg font-black text-white">IA &amp; Ciberseguridad</div>
+                                <p class="text-xs text-slate-400">Predicción de fallas industriales, auditoría forense y bases de datos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADN TALOX: SIGNIFICADO DE LAS SIGLAS -->
+    <section id="identidad" class="py-20 bg-slate-950 border-t border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-widest text-sky-400">Nuestra Identidad Corporativa</span>
+                <h2 class="text-2xl sm:text-4xl font-black text-white mt-2">El Significado de <span class="text-sky-400">T-A-L-O-X</span></h2>
+                <p class="text-slate-400 text-sm sm:text-base mt-3">
+                    Cada sigla de <strong>TALOX Technology</strong> sintetiza nuestra ingeniería de sistemas para la industria productiva, comercial y aeronáutica.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+                <div class="glass-card rounded-2xl p-6 text-center">
+                    <div class="w-14 h-14 mx-auto rounded-2xl bg-sky-500/15 border border-sky-400/40 flex items-center justify-center text-2xl font-black text-sky-400 mb-4">T</div>
+                    <h3 class="font-bold text-white text-base mb-2">Trazabilidad &amp; Tecnología</h3>
+                    <p class="text-xs text-slate-400">Auditoría inalterable de operaciones, bases de datos y ciberseguridad industrial.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 text-center">
+                    <div class="w-14 h-14 mx-auto rounded-2xl bg-blue-500/15 border border-blue-400/40 flex items-center justify-center text-2xl font-black text-blue-400 mb-4">A</div>
+                    <h3 class="font-bold text-white text-base mb-2">Aviación &amp; Automatización</h3>
+                    <p class="text-xs text-slate-400">Sistemas para talleres MRO, aviónica, baterías, salvamento y aeronavegabilidad.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 text-center">
+                    <div class="w-14 h-14 mx-auto rounded-2xl bg-emerald-500/15 border border-emerald-400/40 flex items-center justify-center text-2xl font-black text-emerald-400 mb-4">L</div>
+                    <h3 class="font-bold text-white text-base mb-2">Logística &amp; Líneas de Producción</h3>
+                    <p class="text-xs text-slate-400">Almacenes WMS, control de materia prima, números de parte y cadenas de suministro.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 text-center">
+                    <div class="w-14 h-14 mx-auto rounded-2xl bg-amber-500/15 border border-amber-400/40 flex items-center justify-center text-2xl font-black text-amber-400 mb-4">O</div>
+                    <h3 class="font-bold text-white text-base mb-2">Optimización Operativa</h3>
+                    <p class="text-xs text-slate-400">Software ERP transversal para ventas, finanzas multimoneda, compras y RRHH.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 text-center sm:col-span-2 lg:col-span-1">
+                    <div class="w-14 h-14 mx-auto rounded-2xl bg-purple-500/15 border border-purple-400/40 flex items-center justify-center text-2xl font-black text-purple-400 mb-4">X</div>
+                    <h3 class="font-bold text-white text-base mb-2">eXpansión &amp; IA Predictiva</h3>
+                    <p class="text-xs text-slate-400">Inteligencia Artificial para predicción de fallas y licenciamiento SaaS sin fronteras.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATÁLOGO SEPARADO POR PRODUCTOS Y DIVISIONES -->
+    <section id="productos" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-sky-400">Portafolio de Propiedad Intelectual</span>
+                    <h2 class="text-2xl sm:text-4xl font-black text-white mt-2">Nuestras Plataformas por Sector</h2>
+                    <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">
+                        Filtra por división para conocer en detalle cada sistema desarrollado por <strong>TALOX Technology</strong> y acceder directamente a su plataforma.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <button type="button" data-filter="ALL" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold uppercase bg-sky-500 text-slate-950 transition">Todos</button>
+                    <button type="button" data-filter="COMERCIAL" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold uppercase bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Comercial &amp; Automotriz</button>
+                    <button type="button" data-filter="AVIACION" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold uppercase bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Aviación &amp; MRO</button>
+                    <button type="button" data-filter="PRODUCCION" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold uppercase bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Producción Industrial</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- TRAZA ERP -->
+                <div class="product-card glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between" data-category="COMERCIAL">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">División Comercial &amp; Automotriz</span>
+                            <span class="text-xs font-mono text-emerald-400">traza.taloxtechnology.com</span>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-2"><i class="fa-solid fa-car-side text-emerald-400 mr-2"></i>TRAZA ERP &amp; POS Automotriz</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            Sistema integral para gestionar y automatizar negocios de venta de repuestos automotrices, almacenes multisucursal y comercios con control de inventario y facturación fiscal.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 mb-6">
+                            <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i><strong>Galería Táctil de Vehículos por Año y Fitment:</strong> Verificador de compatibilidad de piezas de un modelo a otro y números de parte OEM/Aftermarket.</li>
+                            <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i><strong>Facturación SENIAT &amp; Cajas Multimoneda:</strong> Cumplimiento de Providencias 0071 y 0102, IGTF 3% automático, tasas BCV (USD/EUR) y arqueo de caja.</li>
+                            <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i><strong>Almacén WMS, Kardex &amp; Mercado Libre:</strong> Ubicación por pasillo/estante, control de cascos, RRHH/comisiones y sincronización bidireccional de stock.</li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex justify-end">
+                        <a href="https://traza.taloxtechnology.com" target="_blank" rel="noopener"
+                           class="px-5 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-lg transition flex items-center gap-2">
+                            Abrir Plataforma TRAZA ERP <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SIPA-MRO -->
+                <div class="product-card glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between" data-category="AVIACION">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-400/30">División Aviación MRO</span>
+                            <span class="text-xs font-mono text-amber-400">www.sipa-ops-mro.com</span>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-2"><i class="fa-solid fa-screwdriver-wrench text-amber-400 mr-2"></i>SIPA-MRO Aeronáutico</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            Plataforma especializada para talleres aeronáuticos MRO (Mantenimiento, Reparación y Revisión), control de componentes críticos y cumplimiento de aeronavegabilidad.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 mb-6">
+                            <li><i class="fa-solid fa-check text-amber-400 mr-2"></i><strong>Nichos Técnicos Aeronáuticos:</strong> Gestión especializada para talleres de baterías, aviónica, calibración y equipos de salvamento.</li>
+                            <li><i class="fa-solid fa-check text-amber-400 mr-2"></i><strong>Trazabilidad de Componentes:</strong> Control por Part Number (P/N), Serial Number (S/N), vida límite, órdenes de trabajo e inspecciones certificadas.</li>
+                            <li><i class="fa-solid fa-check text-amber-400 mr-2"></i><strong>Auditoría y Calidad Aeronáutica:</strong> Resguardo documental y alertas preventivas de calibración y vencimiento.</li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex justify-end">
+                        <a href="https://www.sipa-ops-mro.com" target="_blank" rel="noopener"
+                           class="px-5 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-lg transition flex items-center gap-2">
+                            Abrir Plataforma SIPA-MRO <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SIPA-OPS -->
+                <div class="product-card glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between" data-category="AVIACION">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-400/30">División Aerolíneas &amp; Vuelo</span>
+                            <span class="text-xs font-mono text-sky-400">www.sipa-ops.com</span>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-2"><i class="fa-solid fa-plane-departure text-sky-400 mr-2"></i>SIPA-OPS Aviation</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            Sistema de gestión de operaciones aéreas, control de flota, tripulaciones y despacho para aerolíneas y operadores aeronáuticos.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 mb-6">
+                            <li><i class="fa-solid fa-check text-sky-400 mr-2"></i><strong>Control Operacional de Flota:</strong> Seguimiento de horas de vuelo, ciclos, bitácoras y estatus de aeronaves en tiempo real.</li>
+                            <li><i class="fa-solid fa-check text-sky-400 mr-2"></i><strong>Tripulaciones y Seguridad Operacional:</strong> Control de licencias, habilitaciones médicas y entrenamientos recurrentes.</li>
+                            <li><i class="fa-solid fa-check text-sky-400 mr-2"></i><strong>Continuidad Operativa:</strong> Indicadores gerenciales para la toma de decisiones en tiempo real.</li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex justify-end">
+                        <a href="https://www.sipa-ops.com" target="_blank" rel="noopener"
+                           class="px-5 py-3 rounded-xl bg-sky-400 hover:bg-sky-300 text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-lg transition flex items-center gap-2">
+                            Abrir Plataforma SIPA-OPS <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PRODUCCIÓN INDUSTRIAL E IA -->
+                <div class="product-card glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between" data-category="PRODUCCION">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-500/20 text-purple-300 border border-purple-400/30">División Producción Industrial</span>
+                            <span class="text-xs font-mono text-purple-400">Suite SaaS Industrial</span>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-2"><i class="fa-solid fa-industry text-purple-400 mr-2"></i>TALOX Manufactura &amp; IA</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            Soluciones ERP e Inteligencia Artificial para el control de líneas de producción masiva, inventarios de materia prima y mantenimiento preventivo de maquinaria.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 mb-6">
+                            <li><i class="fa-solid fa-check text-purple-400 mr-2"></i><strong>Control de Líneas de Producción:</strong> Órdenes de fabricación, costos por lote, control de mermas y cadenas de suministro.</li>
+                            <li><i class="fa-solid fa-check text-purple-400 mr-2"></i><strong>Predicción de Fallas con IA:</strong> Análisis de datos industriales para mantenimiento predictivo y continuidad de planta.</li>
+                            <li><i class="fa-solid fa-check text-purple-400 mr-2"></i><strong>Gestión Transversal:</strong> Recursos Humanos, Compras críticas, Almacenes y Finanzas integradas.</li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex justify-end">
+                        <a href="#contacto"
+                           class="px-5 py-3 rounded-xl bg-purple-500 hover:bg-purple-400 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg transition flex items-center gap-2">
+                            Solicitar Implementación <i class="fa-solid fa-paper-plane"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OBJETO DE LA EMPRESA Y SERVICIOS -->
+    <section id="servicios" class="py-20 bg-slate-950 border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-widest text-sky-400">Objeto Social de la Empresa</span>
+                <h2 class="text-2xl sm:text-4xl font-black text-white mt-2">Nuestras 5 Líneas de Especialización</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-sky-400 mb-2"><i class="fa-solid fa-shield-halved mr-2"></i>Consultoría Tecnológica e Industrial</h3>
+                    <p class="text-sm text-slate-300">Auditoría de sistemas, diseño de bases de datos, soporte técnico especializado y ciberseguridad industrial.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-emerald-400 mb-2"><i class="fa-solid fa-gears mr-2"></i>Gestión para la Industria de Producción</h3>
+                    <p class="text-sm text-slate-300">Control de líneas de producción, gestión de inventarios de materia prima, mantenimiento preventivo de maquinaria y optimización de cadenas de suministro.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-amber-400 mb-2"><i class="fa-solid fa-plane-up mr-2"></i>Gestión para la Industria de Aviación</h3>
+                    <p class="text-sm text-slate-300">Desarrollo de sistemas para talleres MRO (Mantenimiento, Reparación y Revisión), control de componentes aeronáuticos, gestión de aerolíneas y aeronavegabilidad.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-blue-400 mb-2"><i class="fa-solid fa-sitemap mr-2"></i>Soluciones Corporativas Transversales</h3>
+                    <p class="text-sm text-slate-300">Software multiplataforma para sectores comerciales, administrativos, logísticos, compras, ventas y recursos humanos.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 md:col-span-2">
+                    <h3 class="text-lg font-bold text-purple-400 mb-2"><i class="fa-solid fa-cloud mr-2"></i>Venta, Licenciamiento SaaS y Propiedad Intelectual</h3>
+                    <p class="text-sm text-slate-300">Comercialización de software bajo modelos SaaS (Software as a Service), desarrollo de propiedad intelectual propia e implementación de Inteligencia Artificial para predicción de fallas y escalamiento global.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISIÓN, VISIÓN Y OBJETIVOS CORPORATIVOS -->
+    <section id="nosotros" class="py-20 border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="glass-card rounded-2xl p-8 border-l-4 border-l-sky-400">
+                    <h3 class="text-2xl font-black text-white mb-3"><i class="fa-solid fa-bullseye text-sky-400 mr-2"></i>Misión</h3>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Empoderar a las organizaciones de la industria de producción y aviación mediante el desarrollo de software de alta precisión. Transformamos la complejidad operativa en interfaces intuitivas y seguras, aplicando estándares de ingeniería de sistemas para optimizar los recursos y potenciar la productividad de nuestros clientes.
+                    </p>
+                </div>
+                <div class="glass-card rounded-2xl p-8 border-l-4 border-l-emerald-400">
+                    <h3 class="text-2xl font-black text-white mb-3"><i class="fa-solid fa-earth-americas text-emerald-400 mr-2"></i>Visión</h3>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Consolidarnos como la Fábrica de Software e Innovación Tecnológica de referencia en América Latina, reconocidos por exportar soluciones digitales de grado industrial que aceleren la transformación digital en las empresas del futuro, sin límites de sector o frontera.
+                    </p>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8">
+                <h3 class="text-xl font-black text-white mb-2">Objetivo General</h3>
+                <p class="text-slate-300 text-sm sm:text-base mb-6">
+                    Desarrollar y comercializar soluciones de software integrales que automaticen, protejan y optimicen los procesos operativos, productivos y administrativos de empresas en los sectores de aviación y producción industrial, garantizando los más altos estándares internacionales de calidad y seguridad de la información.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-300">
+                    <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800"><strong>1. ERP Industrial y Aeronáutico:</strong> Diseñar y desplegar módulos ERP especializados tanto para plantas de producción masiva como para nichos técnicos aeronáuticos (talleres de baterías, aviónica y equipos de salvamento).</div>
+                    <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800"><strong>2. Gestión Multiplataforma:</strong> Desarrollar aplicaciones multiplataforma que faciliten la gestión integral de recursos (Recursos Humanos, Compras, Ventas, Inventarios críticos).</div>
+                    <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800"><strong>3. Inteligencia Artificial:</strong> Implementar tecnologías de vanguardia como Inteligencia Artificial y análisis de datos para la predicción de fallas y optimización de procesos industriales.</div>
+                    <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800"><strong>4. Escalamiento Global:</strong> Garantizar la protección de la propiedad intelectual y el escalamiento global de los productos desarrollados.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="py-20 bg-slate-950 border-t border-slate-800/80">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 text-center space-y-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-sky-400">Atención Corporativa y Licenciamiento SaaS</span>
+                <h2 class="text-2xl sm:text-4xl font-black text-white">¿Listo para digitalizar tu operación con TALOX Technology?</h2>
+                <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto">
+                    Accede directamente a nuestras plataformas operativas o contáctanos para implementar nuestras soluciones ERP, MRO e Inteligencia Artificial en tu empresa.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 pt-2">
+                    <a href="https://traza.taloxtechnology.com" target="_blank" rel="noopener" class="px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs uppercase tracking-wider">
+                        <i class="fa-solid fa-car-side mr-1"></i> Entrar a TRAZA ERP
+                    </a>
+                    <a href="https://www.sipa-ops.com" target="_blank" rel="noopener" class="px-6 py-3.5 rounded-xl bg-sky-400 hover:bg-sky-300 text-slate-950 font-extrabold text-xs uppercase tracking-wider">
+                        <i class="fa-solid fa-plane mr-1"></i> Entrar a SIPA-OPS
+                    </a>
+                    <a href="https://www.sipa-ops-mro.com" target="_blank" rel="noopener" class="px-6 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-xs uppercase tracking-wider">
+                        <i class="fa-solid fa-screwdriver-wrench mr-1"></i> Entrar a SIPA-MRO
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 bg-slate-950 border-t border-slate-900 text-center text-xs text-slate-500">
+        <p>&copy; 2026 <strong>TALOX Technology</strong> · Industrial &amp; Aerospace Software · Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById('btnMobileMenu').addEventListener('click', function() {
+            document.getElementById('mobileMenuPanel').classList.toggle('hidden');
+        });
+        document.querySelectorAll('.filter-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                const target = btn.getAttribute('data-filter');
+                document.querySelectorAll('.filter-btn').forEach(function(b) {
+                    b.className = 'filter-btn px-4 py-2 rounded-xl text-xs font-bold uppercase bg-slate-800 text-slate-300 hover:bg-slate-700 transition';
+                });
+                btn.className = 'filter-btn px-4 py-2 rounded-xl text-xs font-bold uppercase bg-sky-500 text-slate-950 transition';
+                document.querySelectorAll('.product-card').forEach(function(card) {
+                    card.style.display = (target === 'ALL' || card.getAttribute('data-category') === target) ? '' : 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
