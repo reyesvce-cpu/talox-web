@@ -667,6 +667,43 @@
             }
         }
     </style>
+
+<style id="talox-x-center-span">
+    .talox-x-full-span,
+    .talox-acronym-grid > :nth-child(5),
+    .acronym-grid > :nth-child(5) {
+        grid-column: 1 / -1 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+</style>
+<script id="talox-x-center-script">
+document.addEventListener("DOMContentLoaded", function() {
+    var nodes = document.querySelectorAll("div, li, article");
+    for (var i = 0; i < nodes.length; i++) {
+        var el = nodes[i];
+        var txt = (el.textContent || "").trim();
+        if ((txt.indexOf("eXpansión") !== -1 || txt.indexOf("eXpansion") !== -1) && txt.length < 140) {
+            var target = el;
+            while (target && target.parentElement && target.parentElement.children.length === 1) {
+                target = target.parentElement;
+            }
+            if (target) {
+                target.classList.add("col-12", "talox-x-full-span");
+                target.style.setProperty("grid-column", "1 / -1", "important");
+                target.style.setProperty("width", "100%", "important");
+                target.style.setProperty("max-width", "100%", "important");
+                target.style.setProperty("flex", "0 0 100%", "important");
+                target.style.setProperty("text-align", "center", "important");
+            }
+        }
+    }
+});
+</script>
 </head>
 <body>
 
@@ -735,7 +772,7 @@
                         <strong>O</strong>
                         <span>Optimización Operativa</span>
                     </div>
-                    <div class="acronym-item">
+                    <div class="col-12 talox-x-full-span acronym-item" style="grid-column: 1 / -1 !important; width: 100% !important; text-align: center !important;">
                         <strong>X</strong>
                         <span>eXpansión & Vanguardia</span>
                     </div>
