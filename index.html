@@ -4,1011 +4,368 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TALOX Technology | Soluciones Digitales y Automatización de Procesos</title>
-    <meta name="description" content="TALOX Technology: Desarrollo de software a medida, automatización de procesos operativos, inteligencia de datos y sistemas de gestión al alcance de sus manos.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root {
-            --bg-main: #ffffff;
-            --bg-soft: #f4f8fc;
-            --bg-accent: #eef5fc;
-            --navy: #0f172a;
-            --navy-mid: #1e293b;
-            --blue-primary: #0284c7;
-            --blue-dark: #0369a1;
-            --cyan-accent: #0ea5e9;
-            --text-main: #1e293b;
-            --text-muted: #475569;
-            --border-light: #dbe7f3;
-            --shadow-soft: 0 12px 32px -8px rgba(15, 23, 42, 0.07);
-            --shadow-hover: 0 22px 44px -12px rgba(2, 132, 199, 0.16);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 45%, #f1f5f9 100%);
+            color: #0f172a;
+            min-height: 100vh;
         }
-
-        /* Fusión óptica para que el fondo blanco de cualquier logo (.jpeg/.jpg/.png) se integre sin cortes */
-        .logo-blend-box {
-            background-color: #ffffff;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 14px;
-            padding: 8px 16px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
-        }
-
-        .logo-blend-img {
-            mix-blend-mode: multiply;
-            filter: contrast(1.06) brightness(1.03);
-            display: block;
-            object-fit: contain;
-        }
-
-        /* Barra de Navegación */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        .container { max-width: 1180px; margin: 0 auto; padding: 40px 24px 64px; }
+        .talox-showcase-card {
             background: #ffffff;
-            border-bottom: 1px solid var(--border-light);
-            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+            border: 1.5px solid #e2e8f0;
+            border-radius: 28px;
+            padding: 44px 38px;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06);
+            margin-bottom: 48px;
         }
-
-        .nav-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 12px 24px;
+        .talox-logo-wrap {
+            max-width: 520px;
+            margin: 0 auto 38px;
             display: flex;
+            justify-content: center;
             align-items: center;
-            justify-content: space-between;
+            background: transparent;
+        }
+        .talox-logo-wrap svg { width: 100%; height: auto; display: block; }
+        .talox-acronym-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
-
-        .brand-header {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            text-decoration: none;
-            color: var(--navy);
-        }
-
-        .brand-header .logo-blend-box {
-            padding: 4px 10px;
-            border: none;
-            box-shadow: none;
-        }
-
-        .brand-header img {
-            height: 54px;
-            width: auto;
-            max-width: 200px;
-        }
-
-        .brand-title {
-            font-weight: 800;
-            font-size: 1.35rem;
-            letter-spacing: -0.5px;
-            color: var(--navy);
-            line-height: 1.1;
-        }
-
-        .brand-subtitle {
-            display: block;
-            font-size: 0.72rem;
-            font-weight: 600;
-            color: var(--blue-primary);
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-weight: 600;
-            font-size: 0.94rem;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--blue-primary);
-        }
-
-        .nav-cta {
-            background: var(--navy);
-            color: #ffffff !important;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-weight: 700 !important;
-            font-size: 0.9rem !important;
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
-            transition: all 0.2s ease;
-        }
-
-        .nav-cta:hover {
-            background: var(--blue-primary);
-            transform: translateY(-1px);
-        }
-
-        /* Sección Hero */
-        .hero {
-            position: relative;
-            background: linear-gradient(180deg, #ffffff 0%, var(--bg-soft) 100%);
-            padding: 76px 24px 88px;
-            border-bottom: 1px solid var(--border-light);
-            overflow: hidden;
-        }
-
-        /* Patrón esquemático sutil en el fondo */
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image: 
-                linear-gradient(to right, rgba(2, 132, 199, 0.04) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(2, 132, 199, 0.04) 1px, transparent 1px);
-            background-size: 40px 40px;
-            pointer-events: none;
-        }
-
-        .hero-grid {
-            position: relative;
-            max-width: 1280px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
-            gap: 48px;
-            align-items: center;
-        }
-
-        .badge-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #e0f2fe;
-            color: var(--blue-dark);
-            font-weight: 700;
-            font-size: 0.82rem;
-            padding: 7px 16px;
-            border-radius: 999px;
-            margin-bottom: 22px;
-            border: 1px solid #bae6fd;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.1rem, 4vw, 3.35rem);
-            font-weight: 800;
-            color: var(--navy);
-            line-height: 1.15;
-            letter-spacing: -1px;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: var(--blue-primary);
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 32px;
-            max-width: 630px;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--blue-primary);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 14px 26px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 0.98rem;
-            box-shadow: 0 10px 24px -6px rgba(2, 132, 199, 0.4);
-            transition: all 0.2s ease;
-        }
-
-        .btn-primary:hover {
-            background: var(--blue-dark);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #ffffff;
-            color: var(--navy);
-            text-decoration: none;
-            padding: 14px 26px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 0.98rem;
-            border: 1.5px solid var(--border-light);
-            transition: all 0.2s ease;
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--blue-primary);
-            color: var(--blue-primary);
-        }
-
-        /* Tarjeta Principal del Logo TALOX */
-        .hero-showcase {
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 36px 28px;
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow-soft);
-            text-align: center;
-        }
-
-        .hero-logo-frame {
-            background: #ffffff;
+        .talox-letter-box {
+            background: #f4f9fd;
+            border: 1.5px solid #dbeafe;
             border-radius: 18px;
-            padding: 16px;
-            margin-bottom: 20px;
+            padding: 26px 24px;
+            text-align: center;
+            transition: all 0.25s ease;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
         }
-
-        .hero-logo-frame img {
-            width: 100%;
-            max-width: 340px;
-            max-height: 220px;
-            object-fit: contain;
+        .talox-letter-box:hover {
+            transform: translateY(-3px);
+            border-color: #0284c7;
+            box-shadow: 0 12px 28px rgba(2, 132, 199, 0.12);
         }
-
-        .acronym-bar {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 8px;
-            margin-top: 14px;
+        /* EL 5TO RECUADRO (X) ABARCA DE MANERA CENTRAL DESDE EL INICIO DE LA COLUMNA 1 HASTA EL FINAL DE LA COLUMNA 2 */
+        .talox-letter-box.box-x-full,
+        .talox-acronym-grid > :nth-child(5) {
+            grid-column: 1 / -1 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            text-align: center !important;
         }
-
-        .acronym-item {
-            background: var(--bg-soft);
-            border: 1px solid var(--border-light);
-            border-radius: 10px;
-            padding: 10px 6px;
-            text-align: center;
-        }
-
-        .acronym-item strong {
-            display: block;
-            font-size: 1.2rem;
-            color: var(--blue-primary);
-            font-weight: 800;
-        }
-
-        .acronym-item span {
-            font-size: 0.68rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            display: block;
-            margin-top: 2px;
-        }
-
-        /* Secciones Generales */
-        section {
-            padding: 80px 24px;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 780px;
-            margin: 0 auto 52px;
-        }
-
-        .section-tag {
-            display: inline-block;
+        .talox-letter { font-size: 2.1rem; font-weight: 800; color: #0284c7; line-height: 1.1; margin-bottom: 8px; }
+        .talox-meaning { font-size: 1.05rem; font-weight: 600; color: #334155; }
+        .section-heading { text-align: center; margin-bottom: 32px; }
+        .section-heading span.badge-top {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.78rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            color: var(--blue-primary);
+            font-size: 0.74rem;
+            font-weight: 800;
+            color: #0284c7;
             background: #e0f2fe;
-            padding: 5px 14px;
+            border: 1px solid #bae6fd;
+            padding: 6px 16px;
             border-radius: 999px;
+            letter-spacing: 1.4px;
+            display: inline-block;
             margin-bottom: 12px;
         }
-
-        .section-header h2 {
-            font-size: clamp(1.75rem, 3vw, 2.4rem);
-            font-weight: 800;
-            color: var(--navy);
-            margin-bottom: 14px;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-        }
-
-        /* Capacidades de Ingeniería de Software */
-        .capabilities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 24px;
-            margin-bottom: 20px;
-        }
-
-        .cap-card {
+        .section-heading h2 { font-size: 2rem; font-weight: 900; color: #0f172a; margin-bottom: 8px; }
+        .section-heading p { font-size: 1rem; color: #475569; max-width: 720px; margin: 0 auto; }
+        .portals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+        .portal-ecosystem-card {
             background: #ffffff;
-            border: 1px solid var(--border-light);
-            border-radius: 18px;
-            padding: 28px 24px;
-            box-shadow: var(--shadow-soft);
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .cap-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--cyan-accent);
-        }
-
-        .cap-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: #e0f2fe;
-            color: var(--blue-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            margin-bottom: 16px;
-        }
-
-        .cap-card h3 {
-            font-size: 1.12rem;
-            color: var(--navy);
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .cap-card p {
-            font-size: 0.92rem;
-            color: var(--text-muted);
-        }
-
-        /* Ecosistema de Plataformas en Producción */
-        .bg-soft-section {
-            background-color: var(--bg-soft);
-            border-top: 1px solid var(--border-light);
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 28px;
-        }
-
-        .product-card {
-            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
             border-radius: 22px;
-            border: 1.5px solid var(--border-light);
-            padding: 34px 28px;
+            padding: 28px 26px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: var(--shadow-soft);
+            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.05);
             transition: all 0.25s ease;
         }
-
-        .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--blue-primary);
+        .portal-ecosystem-card:hover {
+            transform: translateY(-4px);
+            border-color: #0284c7;
+            box-shadow: 0 18px 40px rgba(2, 132, 199, 0.14);
         }
-
-        /* Cápsula blanca pura para que los logos JPEG y PNG tengan el mismo fondo blanco limpio */
-        .product-logo-box {
-            height: 120px;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 20px;
-            margin-bottom: 22px;
-        }
-
-        .product-logo-box img {
-            max-height: 92px;
-            max-width: 240px;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-        }
-
-        .product-category {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.74rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: var(--blue-primary);
-            margin-bottom: 6px;
-            display: block;
-        }
-
-        .product-card h3 {
-            font-size: 1.4rem;
-            color: var(--navy);
-            font-weight: 800;
-            margin-bottom: 12px;
-        }
-
-        .product-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .feature-pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 26px;
-        }
-
-        .feature-pills span {
-            background: var(--bg-soft);
-            color: var(--navy-mid);
-            font-size: 0.78rem;
-            font-weight: 600;
-            padding: 5px 12px;
-            border-radius: 8px;
-            border: 1px solid var(--border-light);
-        }
-
-        .btn-launch {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+        .portal-logo-rect {
             width: 100%;
-            background: var(--navy);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 14px 20px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 0.94rem;
-            transition: background 0.2s;
-        }
-
-        .btn-launch:hover {
-            background: var(--blue-primary);
-        }
-
-        /* Identidad Corporativa: Misión, Visión, Valores */
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-
-        .pillar-box {
-            background: var(--bg-soft);
-            border: 1px solid var(--border-light);
-            border-radius: 18px;
-            padding: 30px 26px;
-        }
-
-        .pillar-box h3 {
-            font-size: 1.2rem;
-            color: var(--navy);
-            margin-bottom: 12px;
+            height: 96px;
+            padding: 8px 12px;
+            margin-bottom: 16px;
+            border-radius: 14px;
+            border: 1.5px solid #e2e8f0;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            background: transparent;
         }
-
-        .pillar-box h3 i {
-            color: var(--blue-primary);
-        }
-
-        .pillar-box p {
-            color: var(--text-muted);
-            font-size: 0.94rem;
-        }
-
-        /* Aliados Comerciales */
-        .allies-banner {
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-            color: #ffffff;
-            border-radius: 24px;
-            padding: 48px 40px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 28px;
-            box-shadow: var(--shadow-hover);
-        }
-
-        .allies-banner h3 {
-            font-size: 1.75rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        .allies-banner p {
-            color: #cbd5e1;
-            max-width: 680px;
-            font-size: 1rem;
-        }
-
-        .btn-allies {
-            background: #38bdf8;
-            color: #0f172a;
-            text-decoration: none;
-            padding: 15px 28px;
-            border-radius: 12px;
-            font-weight: 800;
-            font-size: 0.96rem;
+        .portal-logo-rect svg { width: 100%; height: 100%; }
+        .portal-ecosystem-card h3 { font-size: 1.35rem; font-weight: 800; color: #0f172a; margin-bottom: 8px; }
+        .portal-ecosystem-card p { font-size: 0.9rem; color: #475569; line-height: 1.5; margin-bottom: 20px; }
+        .btn-portal-go {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            transition: transform 0.2s, background 0.2s;
-        }
-
-        .btn-allies:hover {
-            background: #ffffff;
-            transform: translateY(-2px);
-        }
-
-        /* Pie de Página */
-        footer {
-            background: var(--navy);
-            color: #94a3b8;
-            padding: 56px 24px 36px;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 13px 18px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #070A44 0%, #0284c7 100%);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 800;
             font-size: 0.9rem;
         }
-
-        .footer-grid {
-            max-width: 1280px;
-            margin: 0 auto 36px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 32px;
-        }
-
-        .footer-col h4 {
-            color: #ffffff;
-            font-size: 1rem;
-            margin-bottom: 14px;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 8px;
-        }
-
-        .footer-col a {
-            color: #94a3b8;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-col a:hover {
-            color: #38bdf8;
-        }
-
-        .footer-bottom {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding-top: 24px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 12px;
-        }
-
-        @media (max-width: 920px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-            }
-            .nav-links {
-                display: none;
-            }
-            .acronym-bar {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .allies-banner {
-                padding: 32px 24px;
-            }
-        }
+        @media (max-width: 640px) { .talox-acronym-grid { grid-template-columns: 1fr; } }
     </style>
-
-<style id="talox-x-center-span">
-    .talox-x-full-span,
-    .talox-acronym-grid > :nth-child(5),
-    .acronym-grid > :nth-child(5) {
-        grid-column: 1 / -1 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        flex: 0 0 100% !important;
-        text-align: center !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-</style>
-<script id="talox-x-center-script">
-document.addEventListener("DOMContentLoaded", function() {
-    var nodes = document.querySelectorAll("div, li, article");
-    for (var i = 0; i < nodes.length; i++) {
-        var el = nodes[i];
-        var txt = (el.textContent || "").trim();
-        if ((txt.indexOf("eXpansión") !== -1 || txt.indexOf("eXpansion") !== -1) && txt.length < 140) {
-            var target = el;
-            while (target && target.parentElement && target.parentElement.children.length === 1) {
-                target = target.parentElement;
-            }
-            if (target) {
-                target.classList.add("col-12", "talox-x-full-span");
-                target.style.setProperty("grid-column", "1 / -1", "important");
-                target.style.setProperty("width", "100%", "important");
-                target.style.setProperty("max-width", "100%", "important");
-                target.style.setProperty("flex", "0 0 100%", "important");
-                target.style.setProperty("text-align", "center", "important");
-            }
-        }
-    }
-});
-</script>
 </head>
 <body>
-
-    <!-- Navegación Superior -->
-    <header>
-        <div class="nav-container">
-            <a href="#" class="brand-header">
-                <div class="logo-blend-box">
-                    <img data-logo="logo_talox" src="logo_talox.jpeg" alt="TALOX Technology" class="logo-blend-img">
+    <div class="container">
+        <div class="talox-showcase-card">
+            <div class="talox-logo-wrap"><svg class="talox-pure-svg" viewBox="0 0 620 150" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="TALOX Technology Logo Oficial">
+    <defs>
+        <linearGradient id="taloxMetal" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#94A3B8"/>
+            <stop offset="35%" stop-color="#F8FAFC"/>
+            <stop offset="55%" stop-color="#64748B"/>
+            <stop offset="100%" stop-color="#1E293B"/>
+        </linearGradient>
+        <linearGradient id="taloxBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#38BDF8"/>
+            <stop offset="50%" stop-color="#0284C7"/>
+            <stop offset="100%" stop-color="#0F172A"/>
+        </linearGradient>
+        <filter id="taloxShadow" x="-10%" y="-10%" width="125%" height="125%">
+            <feDropShadow dx="0" dy="4" stdDeviation="3.5" flood-color="#0F172A" flood-opacity="0.22"/>
+        </filter>
+    </defs>
+    <g transform="translate(15, 10)" filter="url(#taloxShadow)">
+        <path d="M 8 24 C 30 30, 62 36, 86 46 L 72 62 C 50 52, 26 46, 14 40 Z" fill="url(#taloxBlue)"/>
+        <path d="M 16 46 C 36 52, 58 58, 74 66 L 62 78 C 46 71, 28 65, 22 58 Z" fill="url(#taloxMetal)"/>
+        <path d="M 26 66 C 40 70, 54 75, 62 80 L 52 90 C 42 85, 32 80, 28 74 Z" fill="#64748B"/>
+        <path d="M 38 110 C 22 80, 52 34, 114 12 C 74 34, 44 70, 50 100 C 54 112, 70 114, 86 106 C 66 120, 44 120, 38 110 Z" fill="url(#taloxBlue)"/>
+        <path d="M 60 82 L 76 66 L 90 84 L 122 38 L 108 30 L 144 16 L 138 54 L 126 45 L 90 102 Z" fill="url(#taloxBlue)"/>
+        <g stroke="#E0F2FE" stroke-width="1.8" fill="none">
+            <polyline points="82,86 98,64 114,64"/>
+            <polyline points="92,82 108,56 126,56"/>
+            <circle cx="114" cy="64" r="2.5" fill="#38BDF8"/>
+            <circle cx="126" cy="56" r="2.5" fill="#38BDF8"/>
+        </g>
+        <rect x="106" y="72" width="22" height="5.5" rx="1.5" fill="url(#taloxMetal)"/>
+        <rect x="110" y="80" width="26" height="5.5" rx="1.5" fill="url(#taloxBlue)"/>
+        <rect x="102" y="88" width="24" height="5.5" rx="1.5" fill="url(#taloxMetal)"/>
+    </g>
+    <g transform="translate(180, 0)" filter="url(#taloxShadow)">
+        <text x="0" y="90" font-family="'Plus Jakarta Sans', 'Segoe UI', sans-serif" font-weight="900" font-size="82" letter-spacing="5" fill="url(#taloxMetal)" stroke="#334155" stroke-width="1.2">TAL</text>
+        <text x="208" y="90" font-family="'Plus Jakarta Sans', 'Segoe UI', sans-serif" font-weight="900" font-size="82" letter-spacing="5" fill="url(#taloxBlue)">OX</text>
+        <text x="4" y="116" font-family="'JetBrains Mono', monospace" font-weight="800" font-size="12.5" letter-spacing="1.6" fill="#0F172A">INDUSTRIAL &amp; AEROSPACE ERP SOFTWARE SOLUTIONS</text>
+    </g>
+</svg></div>
+            <div class="talox-acronym-grid">
+                <div class="talox-letter-box">
+                    <div class="talox-letter">T</div>
+                    <div class="talox-meaning">Tecnología &amp; Trazabilidad</div>
                 </div>
+                <div class="talox-letter-box">
+                    <div class="talox-letter">A</div>
+                    <div class="talox-meaning">Automatización de Procesos</div>
+                </div>
+                <div class="talox-letter-box">
+                    <div class="talox-letter">L</div>
+                    <div class="talox-meaning">Logística Inteligente</div>
+                </div>
+                <div class="talox-letter-box">
+                    <div class="talox-letter">O</div>
+                    <div class="talox-meaning">Optimización Operativa</div>
+                </div>
+                <div class="talox-letter-box box-x-full">
+                    <div class="talox-letter">X</div>
+                    <div class="talox-meaning">eXpansión &amp; Vanguardia</div>
+                </div>
+            </div>
+        </div>
+        <div class="section-heading">
+            <span class="badge-top">ECOSISTEMA EMPRESARIAL TALOX</span>
+            <h2>Soluciones Digitales y Automatización de Procesos al Alcance de sus Manos</h2>
+            <p>Seleccione la plataforma operativa a la que desea ingresar:</p>
+        </div>
+        <div class="portals-grid">
+            <div class="portal-ecosystem-card">
                 <div>
-                    <span class="brand-title">TALOX</span>
-                    <span class="brand-subtitle">Technology</span>
+                    <div class="portal-logo-rect"><svg class="brand-pure-svg" viewBox="0 0 540 140" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="SIPA Logo Oficial">
+    <defs>
+        <linearGradient id="sipaNavyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#070A44"/>
+            <stop offset="55%" stop-color="#0F296B"/>
+            <stop offset="100%" stop-color="#0284C7"/>
+        </linearGradient>
+        <linearGradient id="sipaCyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#38BDF8"/>
+            <stop offset="50%" stop-color="#0284C7"/>
+            <stop offset="100%" stop-color="#070A44"/>
+        </linearGradient>
+        <linearGradient id="sipaGoldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#B45309"/>
+            <stop offset="50%" stop-color="#F59E0B"/>
+            <stop offset="100%" stop-color="#D97706"/>
+        </linearGradient>
+        <filter id="sipaDropShadow" x="-10%" y="-10%" width="125%" height="125%">
+            <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#070A44" flood-opacity="0.18"/>
+        </filter>
+    </defs>
+    <g transform="translate(10, 8)" filter="url(#sipaDropShadow)">
+        <path d="M 6 44 L 46 52 L 38 64 L 12 58 Z" fill="url(#sipaGoldGrad)"/>
+        <path d="M 12 62 L 44 68 L 38 78 L 18 73 Z" fill="#0284C7" opacity="0.85"/>
+        <path d="M 20 77 L 42 81 L 37 89 L 25 86 Z" fill="#070A44" opacity="0.75"/>
+        <g stroke="url(#sipaCyanGrad)" stroke-width="4.2" fill="none">
+            <circle cx="76" cy="60" r="44"/>
+            <ellipse cx="76" cy="60" rx="18" ry="44"/>
+            <ellipse cx="76" cy="60" rx="34" ry="44" stroke-opacity="0.45" stroke-width="2.5"/>
+            <line x1="32" y1="60" x2="120" y2="60"/>
+            <path d="M 40 36 Q 76 52 112 36"/>
+            <path d="M 40 84 Q 76 68 112 84"/>
+        </g>
+        <path d="M 24 88 C 18 52, 54 14, 114 14 C 82 24, 44 52, 42 96 Z" fill="url(#sipaGoldGrad)"/>
+        <g transform="translate(22, 6) rotate(35, 58, 54) scale(0.92)">
+            <path d="M 50 4 C 50 4, 54 5, 56 16 L 56 36 L 92 58 L 92 68 L 56 57 L 56 79 L 68 89 L 68 95 L 50 89 L 32 95 L 32 89 L 44 79 L 44 57 L 8 68 L 8 58 L 44 36 L 44 16 C 46 5, 50 4, 50 4 Z"
+                  fill="url(#sipaNavyGrad)" stroke="#FFFFFF" stroke-width="4.5" stroke-linejoin="round"/>
+        </g>
+    </g>
+    <g transform="translate(154, 0)">
+        <text x="0" y="82" font-family="'Plus Jakarta Sans', 'Segoe UI', sans-serif" font-weight="900" font-size="76" letter-spacing="6" fill="url(#sipaNavyGrad)" filter="url(#sipaDropShadow)">SIPA</text>
+        <rect x="2" y="94" width="235" height="4" rx="2" fill="url(#sipaCyanGrad)"/>
+        <rect x="243" y="94" width="125" height="4" rx="2" fill="url(#sipaGoldGrad)"/>
+        <text x="2" y="114" font-family="'JetBrains Mono', monospace" font-weight="800" font-size="12.2" letter-spacing="2.4" fill="#070A44">SISTEMA INTEGRADO DE OPERACIONES</text>
+        <text x="2" y="130" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="10.2" letter-spacing="3.1" fill="#B45309">AVIATION OPS · ENGINEERING · MRO</text>
+    </g>
+</svg></div>
+                    <h3>ERP Aeronáutico Integral</h3>
+                    <p>Ingeniería Aeronáutica, Planificación, Centro de Control de Producción (PCC), Almacén Aeronáutico, Hangar de Línea, Capacitación y Aeronaves en Tiempo Real.</p>
                 </div>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#soluciones">Soluciones a Medida</a></li>
-                <li><a href="#ecosistema">Plataformas</a></li>
-                <li><a href="#corporativo">Filosofía</a></li>
-                <li><a href="#aliados">Aliados Comerciales</a></li>
-                <li><a href="#ecosistema" class="nav-cta"><i class="fa-solid fa-layer-group"></i> Acceder a Sistemas</a></li>
-            </ul>
-        </div>
-    </header>
-
-    <!-- Hero Principal -->
-    <section class="hero">
-        <div class="hero-grid">
-            <div>
-                <div class="badge-pill">
-                    <i class="fa-solid fa-microchip"></i>
-                    Soluciones Digitales y Automatización de Procesos al Alcance de sus Manos
-                </div>
-                <h1>Ingeniería de Software y <span>Transformación Operativa</span> para tu Empresa</h1>
-                <p>
-                    En <strong>TALOX Technology</strong> diseñamos, desarrollamos e implementamos ecosistemas digitales, automatización inteligente de flujos de trabajo y arquitecturas en la nube adaptadas a las necesidades reales de cualquier sector comercial, corporativo, logístico o de servicios.
-                </p>
-                <div class="hero-actions">
-                    <a href="#ecosistema" class="btn-primary">
-                        <i class="fa-solid fa-rocket"></i> Explorar Plataformas Activas
-                    </a>
-                    <a href="#aliados" class="btn-secondary">
-                        <i class="fa-solid fa-handshake"></i> Programa de Aliados Comerciales
-                    </a>
-                </div>
+                <a href="https://www.sipa-ops.com/login/" class="btn-portal-go"><i class="fa-solid fa-tower-observation"></i> INGRESAR A SIPA ERP</a>
             </div>
-
-            <div class="hero-showcase">
-                <div class="hero-logo-frame">
-                    <img data-logo="logo_talox" src="logo_talox.jpeg" alt="Logo Oficial TALOX Technology" class="logo-blend-img">
-                </div>
-                <div class="acronym-bar">
-                    <div class="acronym-item">
-                        <strong>T</strong>
-                        <span>Tecnología & Trazabilidad</span>
-                    </div>
-                    <div class="acronym-item">
-                        <strong>A</strong>
-                        <span>Automatización de Procesos</span>
-                    </div>
-                    <div class="acronym-item">
-                        <strong>L</strong>
-                        <span>Logística Inteligente</span>
-                    </div>
-                    <div class="acronym-item">
-                        <strong>O</strong>
-                        <span>Optimización Operativa</span>
-                    </div>
-                    <div class="col-12 talox-x-full-span acronym-item" style="grid-column: 1 / -1 !important; width: 100% !important; text-align: center !important;">
-                        <strong>X</strong>
-                        <span>eXpansión & Vanguardia</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Capacidades Multisectoriales -->
-    <section id="soluciones">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Alcance Multisectorial</span>
-                <h2>Tecnología Diseñada para Escalar Cualquier Operación</h2>
-                <p>Construimos herramientas intuitivas, seguras y de rápida adopción que eliminan cuellos de botella operativos y centralizan la toma de decisiones en tiempo real.</p>
-            </div>
-
-            <div class="capabilities-grid">
-                <div class="cap-card">
-                    <div class="cap-icon"><i class="fa-solid fa-gears"></i></div>
-                    <h3>Automatización de Procesos</h3>
-                    <p>Digitalizamos tareas repetitivas, controles internos, aprobaciones y flujos administrativos para reducir errores humanos y multiplicar la productividad.</p>
-                </div>
-                <div class="cap-card">
-                    <div class="cap-icon"><i class="fa-solid fa-code-branch"></i></div>
-                    <h3>Desarrollo de Software a Medida</h3>
-                    <p>Creamos plataformas web, sistemas de gestión empresarial y portales corporativos adaptados exactamente a las reglas de negocio de cada organización.</p>
-                </div>
-                <div class="cap-card">
-                    <div class="cap-icon"><i class="fa-solid fa-chart-line"></i></div>
-                    <h3>Inteligencia de Datos y Control</h3>
-                    <p>Transformamos operaciones diarias en indicadores ejecutivos claros, auditoría forense en tiempo real y trazabilidad de extremo a extremo.</p>
-                </div>
-                <div class="cap-card">
-                    <div class="cap-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
-                    <h3>Arquitectura Cloud & Integraciones</h3>
-                    <p>Despliegue seguro en la nube con acceso multi-dispositivo, sincronización con pasarelas comerciales y disponibilidad continua 24/7.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ecosistema de Plataformas en Producción -->
-    <section id="ecosistema" class="bg-soft-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Ecosistema en Producción</span>
-                <h2>Nuestras Plataformas Especializadas</h2>
-                <p>Selecciona la división correspondiente para ingresar directamente a su portal operativo independiente.</p>
-            </div>
-
-            <div class="products-grid">
-                <!-- 1. TRAZA -->
-                <div class="product-card">
-                    <div>
-                        <div class="product-logo-box">
-                            <img data-logo="logo_traza" src="logo_traza.jpeg" alt="Logo TRAZA" class="logo-blend-img">
-                        </div>
-                        <span class="product-category">División Comercial, Inventarios & Finanzas</span>
-                        <h3>TRAZA — Gestión y Trazabilidad</h3>
-                        <p>
-                            Plataforma integral para el control de almacenes por coordenadas, catálogo inteligente de partes y compatibilidades, punto de venta ágil, gestión multimoneda y auditoría operativa en tiempo real.
-                        </p>
-                        <div class="feature-pills">
-                            <span>Almacén Inteligente</span>
-                            <span>Catálogo Visual</span>
-                            <span>Control Multimoneda</span>
-                            <span>Sincronización E-Commerce</span>
-                        </div>
-                    </div>
-                    <a href="https://traza.taloxtechnology.com" class="btn-launch">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Ingresar al Portal TRAZA
-                    </a>
-                </div>
-
-                <!-- 2. SIPA Flight Ops -->
-                <div class="product-card">
-                    <div>
-                        <div class="product-logo-box">
-                            <img data-logo="logo_sipa" src="logo_sipa.png" alt="Logo SIPA Aviation Ops" class="logo-blend-img">
-                        </div>
-                        <span class="product-category">División de Operaciones Aéreas & Flotas</span>
-                        <h3>SIPA — Aviation Ops</h3>
-                        <p>
-                            Ecosistema para la gestión de operaciones de vuelo, control de aeronavegabilidad continua, planificación de flota, memoria cognitiva asistida por IA y visualización técnica interactiva.
-                        </p>
-                        <div class="feature-pills">
-                            <span>Operaciones de Vuelo</span>
-                            <span>Control de Flota</span>
-                            <span>Gemelo Digital 3D</span>
-                            <span>Asistencia Cognitiva IA</span>
-                        </div>
-                    </div>
-                    <a href="https://www.sipa-ops.com" class="btn-launch">
-                        <i class="fa-solid fa-plane-up"></i> Ingresar a SIPA Flight Ops
-                    </a>
-                </div>
-
-                <!-- 3. SIPA-MRO -->
-                <div class="product-card">
-                    <div>
-                        <div class="product-logo-box">
-                            <img data-logo="logo_sipa" src="logo_sipa.png" alt="Logo SIPA-MRO" class="logo-blend-img">
-                        </div>
-                        <span class="product-category">División de Talleres Aeronáuticos & Propulsión</span>
-                        <h3>SIPA — MRO Plantas Propulsoras</h3>
-                        <p>
-                            Plataforma dedicada a organizaciones de mantenimiento aeronáutico y talleres de plantas propulsoras: trazabilidad de órdenes de servicio, aseguramiento de calidad e inspección técnica certificada.
-                        </p>
-                        <div class="feature-pills">
-                            <span>Plantas Propulsoras</span>
-                            <span>Control de Calidad</span>
-                            <span>Trazabilidad de Taller</span>
-                            <span>Auditoría Técnica</span>
-                        </div>
-                    </div>
-                    <a href="https://www.sipa-ops-mro.com" class="btn-launch">
-                        <i class="fa-solid fa-screwdriver-wrench"></i> Ingresar a SIPA-MRO
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Filosofía Corporativa -->
-    <section id="corporativo">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Identidad Corporativa</span>
-                <h2>Nuestra Visión Tecnológica</h2>
-                <p>Comprometidos con la excelencia en ingeniería de software y la comodidad del usuario final.</p>
-            </div>
-
-            <div class="pillars-grid">
-                <div class="pillar-box">
-                    <h3><i class="fa-solid fa-bullseye"></i> Misión</h3>
-                    <p>Desarrollar soluciones digitales y sistemas de automatización de procesos de alta confiabilidad que simplifiquen operaciones complejas, eleven la rentabilidad de nuestros clientes y pongan la tecnología de vanguardia al alcance de sus manos.</p>
-                </div>
-                <div class="pillar-box">
-                    <h3><i class="fa-solid fa-eye"></i> Visión</h3>
-                    <p>Consolidarnos como el referente tecnológico en desarrollo de software empresarial y automatización operativa en Latinoamérica, destacando por interfaces intuitivas, seguridad forense y adaptación continua.</p>
-                </div>
-                <div class="pillar-box">
-                    <h3><i class="fa-solid fa-shield-halved"></i> Valores</h3>
-                    <p>Innovación constante, precisión técnica, transparencia en trazabilidad de datos, diseño centrado en la comodidad del usuario y acompañamiento cercano a cada uno de nuestros Aliados Comerciales.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Programa de Aliados Comerciales -->
-    <section id="aliados" style="padding-top: 10px;">
-        <div class="container">
-            <div class="allies-banner">
+            <div class="portal-ecosystem-card">
                 <div>
-                    <span class="badge-pill" style="background: rgba(56,189,248,0.18); color: #7dd3fc; border-color: rgba(56,189,248,0.35);">
-                        Crecimiento Conjunto
-                    </span>
-                    <h3>Programa de Aliados Comerciales</h3>
-                    <p>
-                        Impulsa la transformación digital de tu sector integrando o distribuyendo las soluciones de <strong>TALOX Technology</strong>, o solicita el desarrollo de una plataforma automatizada a la medida de tu organización.
-                    </p>
+                    <div class="portal-logo-rect"><svg class="brand-pure-svg" viewBox="0 0 540 140" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="SIPA Logo Oficial">
+    <defs>
+        <linearGradient id="sipaNavyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#070A44"/>
+            <stop offset="55%" stop-color="#0F296B"/>
+            <stop offset="100%" stop-color="#0284C7"/>
+        </linearGradient>
+        <linearGradient id="sipaCyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#38BDF8"/>
+            <stop offset="50%" stop-color="#0284C7"/>
+            <stop offset="100%" stop-color="#070A44"/>
+        </linearGradient>
+        <linearGradient id="sipaGoldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#B45309"/>
+            <stop offset="50%" stop-color="#F59E0B"/>
+            <stop offset="100%" stop-color="#D97706"/>
+        </linearGradient>
+        <filter id="sipaDropShadow" x="-10%" y="-10%" width="125%" height="125%">
+            <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#070A44" flood-opacity="0.18"/>
+        </filter>
+    </defs>
+    <g transform="translate(10, 8)" filter="url(#sipaDropShadow)">
+        <path d="M 6 44 L 46 52 L 38 64 L 12 58 Z" fill="url(#sipaGoldGrad)"/>
+        <path d="M 12 62 L 44 68 L 38 78 L 18 73 Z" fill="#0284C7" opacity="0.85"/>
+        <path d="M 20 77 L 42 81 L 37 89 L 25 86 Z" fill="#070A44" opacity="0.75"/>
+        <g stroke="url(#sipaCyanGrad)" stroke-width="4.2" fill="none">
+            <circle cx="76" cy="60" r="44"/>
+            <ellipse cx="76" cy="60" rx="18" ry="44"/>
+            <ellipse cx="76" cy="60" rx="34" ry="44" stroke-opacity="0.45" stroke-width="2.5"/>
+            <line x1="32" y1="60" x2="120" y2="60"/>
+            <path d="M 40 36 Q 76 52 112 36"/>
+            <path d="M 40 84 Q 76 68 112 84"/>
+        </g>
+        <path d="M 24 88 C 18 52, 54 14, 114 14 C 82 24, 44 52, 42 96 Z" fill="url(#sipaGoldGrad)"/>
+        <g transform="translate(22, 6) rotate(35, 58, 54) scale(0.92)">
+            <path d="M 50 4 C 50 4, 54 5, 56 16 L 56 36 L 92 58 L 92 68 L 56 57 L 56 79 L 68 89 L 68 95 L 50 89 L 32 95 L 32 89 L 44 79 L 44 57 L 8 68 L 8 58 L 44 36 L 44 16 C 46 5, 50 4, 50 4 Z"
+                  fill="url(#sipaNavyGrad)" stroke="#FFFFFF" stroke-width="4.5" stroke-linejoin="round"/>
+        </g>
+    </g>
+    <g transform="translate(154, 0)">
+        <text x="0" y="82" font-family="'Plus Jakarta Sans', 'Segoe UI', sans-serif" font-weight="900" font-size="76" letter-spacing="6" fill="url(#sipaNavyGrad)" filter="url(#sipaDropShadow)">SIPA</text>
+        <rect x="2" y="94" width="235" height="4" rx="2" fill="url(#sipaCyanGrad)"/>
+        <rect x="243" y="94" width="125" height="4" rx="2" fill="url(#sipaGoldGrad)"/>
+        <text x="2" y="114" font-family="'JetBrains Mono', monospace" font-weight="800" font-size="12.2" letter-spacing="2.4" fill="#070A44">SISTEMA INTEGRADO DE OPERACIONES</text>
+        <text x="2" y="130" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="10.2" letter-spacing="3.1" fill="#B45309">AVIATION OPS · ENGINEERING · MRO</text>
+    </g>
+</svg></div>
+                    <h3>MRO Plantas Propulsoras</h3>
+                    <p>Control Técnico de Motores Turbofán, Turbopropulsores, Unidades de Potencia Auxiliar (APU), Hélices, Talleres y Aseguramiento de Calidad QA 8130-3.</p>
                 </div>
-                <a href="https://wa.me/584120444230?text=Hola%2C%20deseo%20informaci%C3%B3n%20sobre%20las%20soluciones%20de%20TALOX%20Technology%20y%20el%20Programa%20de%20Aliados%20Comerciales" target="_blank" rel="noopener" class="btn-allies">
-                    <i class="fa-brands fa-whatsapp"></i> Contactar Dirección Comercial
-                </a>
+                <a href="https://www.sipa-ops-mro.com/accounts/login/" class="btn-portal-go"><i class="fa-solid fa-fan"></i> INGRESAR A SIPA MRO</a>
+            </div>
+            <div class="portal-ecosystem-card">
+                <div>
+                    <div class="portal-logo-rect"><svg class="brand-pure-svg" viewBox="0 0 540 140" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="TRAZA Logo Oficial">
+    <defs>
+        <linearGradient id="trazaNavyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0F172A"/>
+            <stop offset="50%" stop-color="#1E3A8A"/>
+            <stop offset="100%" stop-color="#0284C7"/>
+        </linearGradient>
+        <linearGradient id="trazaCyanGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#0369A1"/>
+            <stop offset="55%" stop-color="#0284C7"/>
+            <stop offset="100%" stop-color="#38BDF8"/>
+        </linearGradient>
+        <linearGradient id="trazaEmeraldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#059669"/>
+            <stop offset="50%" stop-color="#10B981"/>
+            <stop offset="100%" stop-color="#0284C7"/>
+        </linearGradient>
+        <linearGradient id="trazaSteelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#475569"/>
+            <stop offset="50%" stop-color="#94A3B8"/>
+            <stop offset="100%" stop-color="#334155"/>
+        </linearGradient>
+        <filter id="trazaDropShadow" x="-10%" y="-10%" width="125%" height="125%">
+            <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#0F172A" flood-opacity="0.18"/>
+        </filter>
+    </defs>
+    <g transform="translate(8, 8)" filter="url(#trazaDropShadow)">
+        <path d="M 6 26 C 24 30, 52 36, 74 44 C 84 48, 88 58, 82 68 L 66 58 C 52 50, 26 44, 14 40 Z" fill="url(#trazaNavyGrad)"/>
+        <path d="M 14 46 C 30 50, 50 55, 64 62 L 54 74 C 40 68, 24 63, 18 58 Z" fill="url(#trazaSteelGrad)"/>
+        <path d="M 22 64 C 34 67, 46 71, 52 76 L 44 85 C 35 81, 27 77, 24 72 Z" fill="#64748B"/>
+        <path d="M 32 104 C 18 76, 46 34, 102 14 C 66 34, 38 68, 44 96 C 48 106, 62 108, 76 102 C 58 114, 38 114, 32 104 Z" fill="url(#trazaNavyGrad)"/>
+        <path d="M 52 78 L 66 64 L 78 80 L 106 38 L 94 30 L 126 18 L 122 52 L 110 44 L 78 96 Z" fill="url(#trazaCyanGrad)"/>
+        <g stroke="#E0F2FE" stroke-width="1.8" fill="none" opacity="0.9">
+            <polyline points="72,82 86,62 98,62"/>
+            <polyline points="82,78 96,54 112,54"/>
+            <circle cx="98" cy="62" r="2.5" fill="#38BDF8"/>
+            <circle cx="112" cy="54" r="2.5" fill="#38BDF8"/>
+        </g>
+        <rect x="92" y="68" width="18" height="5" rx="1.5" fill="#0284C7"/>
+        <rect x="96" y="76" width="22" height="5" rx="1.5" fill="#0F172A"/>
+        <rect x="88" y="84" width="20" height="5" rx="1.5" fill="#10B981"/>
+    </g>
+    <g transform="translate(148, 0)">
+        <text x="0" y="80" font-family="'Plus Jakarta Sans', 'Segoe UI', sans-serif" font-weight="900" font-size="70" letter-spacing="4.5" fill="url(#trazaNavyGrad)" filter="url(#trazaDropShadow)">TRAZA</text>
+        <rect x="2" y="92" width="248" height="4" rx="2" fill="url(#trazaCyanGrad)"/>
+        <rect x="256" y="92" width="122" height="4" rx="2" fill="url(#trazaEmeraldGrad)"/>
+        <text x="2" y="113" font-family="'JetBrains Mono', monospace" font-weight="800" font-size="11.8" letter-spacing="1.9" fill="#0F172A">SISTEMA DE GESTIÓN Y TRAZABILIDAD</text>
+        <text x="2" y="129" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="10.0" letter-spacing="2.5" fill="#0284C7">AUTOMOTRIZ · ALMACÉN WMS · FINANZAS</text>
+    </g>
+</svg></div>
+                    <h3>TRAZA Finanzas &amp; Almacén WMS</h3>
+                    <p>Sistema Automotriz, de Almacén por Coordenadas WMS, Catálogo de Compatibilidad OEM, Punto de Venta Táctil y Finanzas Multimoneda.</p>
+                </div>
+                <a href="https://traza.taloxtechnology.com/login/" class="btn-portal-go"><i class="fa-solid fa-boxes-stacked"></i> INGRESAR A TRAZA FINANZAS</a>
             </div>
         </div>
-    </section>
-
-    <!-- Pie de Página -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>TALOX Technology</h4>
-                <p>Soluciones digitales, desarrollo de software a medida y automatización inteligente de procesos al alcance de sus manos.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Plataformas Activas</h4>
-                <ul>
-                    <li><a href="https://traza.taloxtechnology.com">TRAZA — Gestión y Trazabilidad</a></li>
-                    <li><a href="https://www.sipa-ops.com">SIPA — Aviation Ops</a></li>
-                    <li><a href="https://www.sipa-ops-mro.com">SIPA — MRO Plantas Propulsoras</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contacto Directo</h4>
-                <ul>
-                    <li><i class="fa-solid fa-phone" style="margin-right:8px;color:#38bdf8;"></i> +58 (412) 044-4230</li>
-                    <li><i class="fa-solid fa-envelope" style="margin-right:8px;color:#38bdf8;"></i> reyesvce@gmail.com</li>
-                    <li><i class="fa-solid fa-globe" style="margin-right:8px;color:#38bdf8;"></i> taloxtechnology.com</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <span>&copy; 2026 TALOX Technology. Todos los derechos reservados.</span>
-            <span>Ingeniería de Software & Automatización de Procesos</span>
-        </div>
-    </footer>
-
-    <!-- Cargador Inteligente Multi-Formato (.jpeg / .jpg / .png / Mayúsculas) -->
-    <script>
-        (function() {
-            const candidatos = {
-                logo_talox: [
-                    'logo_talox.jpeg', 'logo_talox.jpg', 'logo_talox.png',
-                    'logo_talox.JPEG', 'logo_talox.JPG', 'logo_talox.PNG',
-                    'talox.jpeg', 'talox.jpg', 'Logo_TALOX_Technology_Principal.jpg'
-                ],
-                logo_traza: [
-                    'logo_traza.jpeg', 'logo_traza.jpg', 'logo_traza.png',
-                    'logo_traza.JPEG', 'logo_traza.JPG', 'logo_traza.PNG',
-                    'traza.jpeg', 'traza.jpg'
-                ],
-                logo_sipa: [
-                    'logo_sipa.png', 'logo_sipa.jpeg', 'logo_sipa.jpg',
-                    'logo_sipa.PNG', 'logo_sipa.JPEG', 'logo_sipa.JPG',
-                    'sipa.png'
-                ]
-            };
-
-            document.querySelectorAll('img[data-logo]').forEach(function(img) {
-                const clave = img.getAttribute('data-logo');
-                const lista = candidatos[clave] || [];
-                let indice = 0;
-
-                function probarSiguiente() {
-                    indice++;
-                    if (indice < lista.length) {
-                        img.src = lista[indice];
-                    }
-                }
-
-                img.addEventListener('error', probarSiguiente);
-            });
-        })();
-    </script>
+    </div>
 </body>
 </html>
